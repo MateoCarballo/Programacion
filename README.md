@@ -10,6 +10,6 @@ Enlaces Trimestres:
 
 ·[Trimestre 1]()
 
-·[Ejercicios de Arrays](https://github.com/MateoCarballo/Ejercicios-Arrays)
-
 ·[Trimestre 2]()
+  
+        [Ejercicios de Arrays](https://github.com/MateoCarballo/Ejercicios-Arrays)

@@ -8,8 +8,8 @@
   
 Enlaces Trimestres:
 
-·[Trimestre 1]()
+1. [Trimestre 1]()
 
-·[Trimestre 2]()
-  
-        [Ejercicios de Arrays](https://github.com/MateoCarballo/Ejercicios-Arrays)
+2. [Trimestre 2]()
+
+    ·[Ejercicios de Arrays](https://github.com/MateoCarballo/Ejercicios-Arrays)

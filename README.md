@@ -16,5 +16,9 @@ Enlaces Trimestres:
     
     ·[Juego Ahorcado con Vectores](https://github.com/MateoCarballo/AhorcadoConVectores)
     
-    ·[Entregable Arrays](https://github.com/MateoCarballo/EjercicioEntregableArraysV2)
+    ·[Entregable Arrays v1](https://github.com/MateoCarballo/EjercicioEntregableArrays)
+    
+    ·[Entregable Arrays v2](https://github.com/MateoCarballo/EjercicioEntregableArraysV2)
+    
+    ·[Entregable Arrays v3](https://github.com/MateoCarballo/EjercicioEntregableArraysV3)
     

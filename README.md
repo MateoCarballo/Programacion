@@ -25,6 +25,8 @@ Enlaces Trimestres:
     ·[Entregable Arrays v4](https://github.com/MateoCarballo/EjercicioEntregablev4)
     
     ·[Ejercicios Arrays de Objetos](https://github.com/MateoCarballo/Ejercicios-Arrays-de-Objetos)
+    
+    ·[Ej Array de Objetos (Concesionario)](https://github.com/MateoCarballo/EjercicioConcesionario)
 
 3. Varios (Material recurrente).
     

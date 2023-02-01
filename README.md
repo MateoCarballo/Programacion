@@ -23,3 +23,5 @@ Enlaces Trimestres:
     ·[Entregable Arrays v3](https://github.com/MateoCarballo/EjercicioEntregableArraysV3)
     
     ·[Entregable Arrays v4](https://github.com/MateoCarballo/EjercicioEntregablev4)
+    
+    ·[Ejercicios Arrays de Objetos](https://github.com/MateoCarballo/Ejercicios-Arrays-de-Objetos)

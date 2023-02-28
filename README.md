@@ -32,8 +32,7 @@ Enlaces Trimestres:
     
     ·[Busquedas y ordenaciones](https://github.com/MateoCarballo/Busquedas-y-Ordenaciones)
     
-4. Ejercicios entregables.
+4. Ejercicios entregables segundo trimestre.
   
-    ·[Ejercicio 1 CONCESIONARIO]()
-    ·[Ejercicio 2 GESTION NOTAS]()
+    ·[Gestion de notas y Concesionario](https://github.com/MateoCarballo/Entregables-Segundo-Trimestre)
 

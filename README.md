@@ -29,6 +29,8 @@ Enlaces Trimestres:
     ·[Ej Array de Objetos (Concesionario)](https://github.com/MateoCarballo/EjercicioConcesionario)
     
     ·[Ejercicios OO Avanzados](https://github.com/MateoCarballo/Ejercicios-OO-Avanzados)
+    
+    ·[Valiodaciones](https://github.com/MateoCarballo/Validaciones)
 
 3. Varios (Material recurrente).
     

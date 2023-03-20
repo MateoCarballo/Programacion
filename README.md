@@ -50,20 +50,23 @@ Enlace para volver al repositorio principal del curso:
 [Enlace repo principal](https://github.com/MateoCarballo/Principal/blob/main/README.md)
 
 
-| Enlaces Trimestres            |                                           |
-|------------------------------|-------------------------------------------|
-| Trimestre 1                  | [Enlace](./Trimestre1/)                    |
-| Trimestre 2                  |                                           |
-| Ejercicios de Arrays         | [Enlace](./Ejercicios-Arrays/)             |
-| Juego Ahorcado con Vectores  | [Enlace](./AhorcadoConVectores/)            |
-| Entregable Arrays v1         | [Enlace](./EjercicioEntregableArrays/)     |
-| Entregable Arrays v2         | [Enlace](./EjercicioEntregableArraysV2/)   |
-| Entregable Arrays v3         | [Enlace](./EjercicioEntregableArraysV3/)   |
-| Entregable Arrays v4         | [Enlace](./EjercicioEntregablev4/)         |
-| Ejercicios Arrays de Objetos | [Enlace](./Ejercicios-Arrays-de-Objetos/)  |
-| Ej Array de Objetos (Concesionario) | [Enlace](./EjercicioConcesionario/) |
-| Ejercicios OO Avanzados      | [Enlace](./Ejercicios-OO-Avanzados/)       |
-| Validaciones                 | [Enlace](./Validaciones/)                  |                                          |
-| Busquedas y ordenaciones     | [Enlace](./Busquedas-y-Ordenaciones/)      |                                  |
-| Gestion de notas y Concesionario | [Enlace](./Entregables-Segundo-Trimestre/) |
+| Enlaces Trimestres:         |                                      |
+|-----------------------------|--------------------------------------|
+| Trimestre 1                 | [Enlace](./Codigo%20Java/Trimestre1) |
+| Trimestre 2                 |                                      |
+| Ejercicios de Arrays   | [Enlace](./Codigo%20Java/Ejercicios-Arrays/) |
+| Juego Ahorcado con Vectores | [Enlace](./Codigo%20Java/AhorcadoConVectores) |
+| Entregable Arrays v1  | [Enlace](./Codigo%20Java/EjercicioEntregableArrays) |
+| Entregable Arrays v2  | [Enlace](./Codigo%20Java/EjercicioEntregableArraysV2) |
+| Entregable Arrays v3  | [Enlace](./Codigo%20Java/EjercicioEntregableArraysV3) |
+| Entregable Arrays v4  | [Enlace](./Codigo%20Java/EjercicioEntregablev4) |
+| Ejercicios Arrays de Objetos | [Enlace](./Codigo%20Java/Ejercicios-Arrays-de-Objetos) |
+| Ej Array de Objetos (Concesionario) | [Enlace](./Codigo%20Java/EjercicioConcesionario) |
+| Ejercicios OO Avanzados | [Enlace](./Codigo%20Java/Ejercicios-OO-Avanzados) |
+| Validaciones           | [Enlace](./Codigo%20Java/Validaciones) |
+| Varios (Material recurrente)|                                      |
+| Busquedas y ordenaciones | [Enlace](./Codigo%20Java/Busquedas-y-Ordenaciones) |
+| Ejercicios entregables segundo trimestre. |                                      |
+| Gestion de notas y Concesionario | [Enlace](./Codigo%20Java/Entregables-Segundo-Trimestre) |
+
 

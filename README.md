@@ -40,3 +40,30 @@ Enlaces Trimestres:
   
     ·[Gestion de notas y Concesionario](https://github.com/MateoCarballo/Entregables-Segundo-Trimestre)
 
+
+
+# Programacion 💻
+
+Repositorio para tener un respaldo de todo el trabajo hecho en clase. Incluyendo ejemplos y curiosidades.
+
+Enlace para volver al repositorio principal del curso:
+[Enlace repo principal](https://github.com/MateoCarballo/Principal/blob/main/README.md)
+
+
+| Enlaces Trimestres            |                                           |
+|------------------------------|-------------------------------------------|
+| Trimestre 1                  | [Enlace](./Trimestre1/)                    |
+| Trimestre 2                  |                                           |
+| Ejercicios de Arrays         | [Enlace](./Ejercicios-Arrays/)             |
+| Juego Ahorcado con Vectores  | [Enlace](./AhorcadoConVectores/)            |
+| Entregable Arrays v1         | [Enlace](./EjercicioEntregableArrays/)     |
+| Entregable Arrays v2         | [Enlace](./EjercicioEntregableArraysV2/)   |
+| Entregable Arrays v3         | [Enlace](./EjercicioEntregableArraysV3/)   |
+| Entregable Arrays v4         | [Enlace](./EjercicioEntregablev4/)         |
+| Ejercicios Arrays de Objetos | [Enlace](./Ejercicios-Arrays-de-Objetos/)  |
+| Ej Array de Objetos (Concesionario) | [Enlace](./EjercicioConcesionario/) |
+| Ejercicios OO Avanzados      | [Enlace](./Ejercicios-OO-Avanzados/)       |
+| Validaciones                 | [Enlace](./Validaciones/)                  |                                          |
+| Busquedas y ordenaciones     | [Enlace](./Busquedas-y-Ordenaciones/)      |                                  |
+| Gestion de notas y Concesionario | [Enlace](./Entregables-Segundo-Trimestre/) |
+

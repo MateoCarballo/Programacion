@@ -51,3 +51,62 @@ Enlace para volver al repositorio principal del curso:
 
 
 
+<table>
+  <thead>
+    <tr>
+      <th colspan="2">Enlaces Trimestres:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #e8f0fe;">
+      <td><strong>Trimestre 1</strong></td>
+      <td><a href="./Codigo%20Java/Trimestre1">Acceso rápido</a></td>
+    </tr>
+    <tr style="background-color: #e8f0fe;">
+      <td><strong>Trimestre 2</strong></td>
+      <td></td>
+    </tr>
+    <tr style="background-color: #f7f7f7;">
+      <td>Ejercicios de Arrays</td>
+      <td><a href="./Codigo%20Java/Ejercicios-Arrays/">Acceso rápido</a></td>
+    </tr>
+    <tr style="background-color: #f7f7f7;">
+      <td>Juego Ahorcado con Vectores</td>
+      <td><a href="./Codigo%20Java/AhorcadoConVectores">Acceso rápido</a></td>
+    </tr>
+    <tr style="background-color: #f7f7f7;">
+      <td>Entregable Arrays v1</td>
+      <td><a href="./Codigo%20Java/EjercicioEntregableArrays">Acceso rápido</a></td>
+    </tr>
+    <tr style="background-color: #f7f7f7;">
+      <td>Entregable Arrays v2</td>
+      <td><a href="./Codigo%20Java/EjercicioEntregableArraysV2">Acceso rápido</a></td>
+    </tr>
+    <tr style="background-color: #f7f7f7;">
+      <td>Entregable Arrays v3</td>
+      <td><a href="./Codigo%20Java/EjercicioEntregableArraysV3">Acceso rápido</a></td>
+    </tr>
+    <tr style="background-color: #f7f7f7;">
+      <td>Entregable Arrays v4</td>
+      <td><a href="./Codigo%20Java/EjercicioEntregablev4">Acceso rápido</a></td>
+    </tr>
+    <tr style="background-color: #f7f7f7;">
+      <td>Ejercicios Arrays de Objetos</td>
+      <td><a href="./Codigo%20Java/Ejercicios-Arrays-de-Objetos">Acceso rápido</a></td>
+    </tr>
+    <tr style="background-color: #f7f7f7;">
+      <td>Ej Array de Objetos (Concesionario)</td>
+      <td><a href="./Codigo%20Java/EjercicioConcesionario">Acceso rápido</a></td>
+    </tr>
+    <tr style="background-color: #f7f7f7;">
+      <td>Ejercicios OO Avanzados</td>
+      <td><a href="./Codigo%20Java/Ejercicios-OO-Avanzados">Acceso rápido</a></td>
+    </tr>
+    <tr style="background-color: #f7f7f7;">
+      <td>Validaciones</td>
+      <td><a href="./Codigo%20Java/Validaciones">Acceso rápido</a></td>
+    </tr>
+    <tr style="background-color: #
+
+
+

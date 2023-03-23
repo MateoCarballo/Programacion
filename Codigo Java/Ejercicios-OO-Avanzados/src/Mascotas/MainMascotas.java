@@ -13,9 +13,8 @@ public class MainMascotas {
 
         boolean continuar = true;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int a = 0;
-        ArrayList<Mascota> misMascotasAux = new ArrayList();
-        Inventario miInventario = new Inventario("Nombre Tienda", new ArrayList<Mascota>());
+        int a;
+        Inventario miInventario = new Inventario("Nombre Tienda", new ArrayList<>());
 
 
         rellenarDatosParaProbar(miInventario);
@@ -31,34 +30,22 @@ public class MainMascotas {
                     5.Eliminar mascota(por nombre).
                     6.Vaciar inventario.
                     7.Añadir revision a perro.
-                    9.Salir.                
-                    """);
+                    9.Salir.""");
             a = Integer.parseInt(br.readLine());
 
             switch (a) {
-                case 0 -> {
-                    miInventario.dimeSiVuela();
-                }
-                case 1 -> {
-                    misMascotasAux = miInventario.getInventarioAnimales();
-                    int contador0 = 0;
-                    for (Mascota datos : misMascotasAux) {
-                        contador0 += 1;
-                        System.out.println((contador0 + "->" + "Tipo de animal  " + datos.getClass().getSimpleName() + "||" +
-                                " Nombre del animal-> " + datos.getNombre() + "\n"));
-                    }
-                }
+                case 0 -> miInventario.dimeSiVuela();
+                case 1 -> printearClasesNombres(miInventario.getInventarioAnimales());
                 case 2 -> {
                     System.out.println("Nombre de la mascota?");
                     String nombreMascota = br.readLine();
                     miInventario.buscarMascota(nombreMascota);
                 }
                 case 3 -> {
-
+                    //Este metodo devuelve un booleano que si da true significa qe el arraylist esta vacio
                     if (miInventario.mostrarDatosTodosLosAnimales()) {
                         System.out.println("No hay ningun registro en el inventario");
                     }
-
                 }
                 case 4 -> {
                     System.out.println("""
@@ -66,125 +53,15 @@ public class MainMascotas {
                             1.Perro.
                             2.Gato.
                             3.Loro.
-                            4.Canario.            
+                            4.Canario.
                             """);
                     String entradaTeclado = br.readLine();
                     switch (Integer.parseInt(entradaTeclado)) {
-                        case 1 -> {
-                            System.out.println("Nombre?");
-                            String nombrePerro = br.readLine();
-                            System.out.println("Edad?");
-                            int edadPerro = Integer.parseInt(br.readLine());
-                            System.out.println("Estado del perro?");
-                            String estadoPerro = br.readLine();
-                            //TODO cambar String a formato DATE
-                            System.out.println("Fecha de nacimiento?");
-                            String fechaNacPerro = br.readLine();
-                            System.out.println("Raza?");
-                            String razaPerro = br.readLine();
-                            System.out.println("Tiene pulgas?(Y/N)");
-                            boolean pulgas = false;
-                            if (br.readLine().equalsIgnoreCase("Y")) {
-                                pulgas = true;
-                            }
-
-                            //TODO no se como no usar el perroAux quiza pasarle todos los datos al metodo
-
-                            /*
-                            Mi idea aqui debajo es que se copie lo que ya existe dentro del ArrayList
-                            en la auxiliar se añadan elementos a esa auxiliar y que esa auxiiar setee la
-                            arralist del inventario.
-                            La secuencia de pasos seía:
-                            1.Copiar el arrayList
-                            2.Vaciar el arraylist original
-                            3.Añadir elemento en la arraylist auxiliar
-                            4.Setear la original, que vaciamos antes, con el valor de la auxialiar.
-
-                             */
-
-                            misMascotasAux = miInventario.getInventarioAnimales();
-                            //miInventario.vaciarInventario();
-                            misMascotasAux.add(new Perro(nombrePerro, edadPerro, estadoPerro,
-                                    fechaNacPerro, razaPerro, pulgas));
-                            miInventario.setInventarioAnimales(misMascotasAux);
-                            //Este de abajo es solo para probar que funcione sin introducir ningun valor por teclado
-                            //miInventario.addMascota(perro);
-                        }
-                        case 2 -> {
-
-                            System.out.println("Nombre?");
-                            String nombreGato = br.readLine();
-                            System.out.println("Edad?");
-                            int edadGato = Integer.parseInt(br.readLine());
-                            System.out.println("Estado del animal?");
-                            String estadGato = br.readLine();
-                            //TODO cambar String a formato DATE
-                            System.out.println("Fecha de nacimiento?");
-                            String fechaNacGato = br.readLine();
-                            System.out.println("Color");
-                            String colorGato = br.readLine();
-                            System.out.println("Pelo largo?(Y/N)");
-                            boolean peloLargoGato = false;
-                            if (br.readLine().equalsIgnoreCase("Y")) {
-                                peloLargoGato = true;
-                            }
-
-                            misMascotasAux = miInventario.getInventarioAnimales();
-                            //miInventario.vaciarInventario();
-                            misMascotasAux.add(new Gato(nombreGato, edadGato, estadGato, fechaNacGato, colorGato, peloLargoGato));
-                            miInventario.setInventarioAnimales(misMascotasAux);
-
-                            //Este gato de abajo era solo para probar que funcionen las busquedas y ordenadciones
-                            //miInventario.addMascota(gato);
-                        }
-                        case 3 -> {
-
-                            System.out.println("Nombre?");
-                            String nombreLoro = br.readLine();
-                            System.out.println("Edad?");
-                            int edadLoro = Integer.parseInt(br.readLine());
-                            System.out.println("Estado del animal?");
-                            String estadoLoro = br.readLine();
-                            //TODO cambar String a formato DATE
-                            System.out.println("Fecha de nacimiento?");
-                            String fechaNacLoro = br.readLine();
-                            System.out.println("Origen?");
-                            String origenLoro = br.readLine();
-                            System.out.println("El loro habla ? (Y/N)");
-                            boolean habla = false;
-                            if (br.readLine().equalsIgnoreCase("Y")) {
-                                habla = true;
-                            }
-
-                            misMascotasAux = miInventario.getInventarioAnimales();
-                            misMascotasAux.add(new Loro(nombreLoro, edadLoro, estadoLoro, fechaNacLoro, origenLoro, habla));
-                            miInventario.setInventarioAnimales(misMascotasAux);
-                        }
-                        case 4 -> {
-
-
-                            System.out.println("Nombre?");
-                            String nombreCanario = br.readLine();
-                            System.out.println("Edad?");
-                            int edadCanario = Integer.parseInt(br.readLine());
-                            System.out.println("Estado del animal?");
-                            String estadoCanario = br.readLine();
-                            //TODO cambar String a formato DATE
-                            System.out.println("Fecha de nacimiento?");
-                            String fechaNacCanario = br.readLine();
-                            System.out.println("Color?");
-                            String colorCanario = br.readLine();
-                            System.out.println("El canario canta ? (Y/N)");
-                            boolean canta = false;
-                            if (br.readLine().equalsIgnoreCase("Y")) {
-                                canta = true;
-                            }
-
-                            misMascotasAux = miInventario.getInventarioAnimales();
-                            miInventario.vaciarInventario();
-                            misMascotasAux.add(new Canario(nombreCanario, edadCanario, estadoCanario, fechaNacCanario, colorCanario, canta));
-                            miInventario.setInventarioAnimales(misMascotasAux);
-                        }
+                        case 1 -> //llamo al metodo diciendole con el 1 que añadire un perro y lo devuelvo para añadirlo a mi inventario
+                                preguntasComunesAnimales(1,miInventario);
+                        case 2 -> preguntasComunesAnimales(2,miInventario);
+                        case 3 -> preguntasComunesAnimales(3,miInventario);
+                        case 4 -> preguntasComunesAnimales(4,miInventario);
                     }
                 }
                 case 5 -> {
@@ -199,18 +76,16 @@ public class MainMascotas {
                         System.out.println("El inventario se ha vaciado con exito");
                     } else {
                         System.out.println("Se ha cancelado el vaciado del inventario");
-                        ;
+
                     }
 
                 }
 
                 case 7 -> {
-                    sout
+                    //TODO pendente de introducir  validaciones
                 }
 
-                case 9 -> {
-                    continuar = false;
-                }
+                case 9 -> continuar = false;
             }
             // A cada ciclo de programa ordeno los elementos por su nombre mediante este metodo
             miInventario.ordenarElementos();
@@ -248,4 +123,68 @@ public class MainMascotas {
         inventory.addMascota(canario);
     }
 
-}
+    public static void printearClasesNombres(ArrayList <Mascota> misMascotas){
+        int contador0 = 0;
+        for (Mascota datos : misMascotas) {
+            contador0 += 1;
+            System.out.println((contador0 + "->" + "Tipo de animal  " + datos.getClass().getSimpleName() + "||" +
+                    " Nombre del animal-> " + datos.getNombre() + "\n"));
+        }
+    }
+    // mi idea con este metdo es no repeir tantas veces lo mismo en cada uno de los case del menu principal
+
+
+    public static void preguntasComunesAnimales(int tipodeInsercion,Inventario inventory) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Nombre?");
+        String nombre = br.readLine();
+        System.out.println("Edad?");
+        int edad = Integer.parseInt(br.readLine());
+        System.out.println("Estado?");
+        String estado = br.readLine();
+        //TODO cambar String a formato DATE
+        System.out.println("Fecha de nacimiento?");
+        String fechaNacimiento = br.readLine();
+
+        switch (tipodeInsercion){
+            case 1-> {
+                System.out.println("Raza?");
+                String razaPerro = br.readLine();
+                System.out.println("Tiene pulgas?(Y/N)");
+                boolean pulgas = br.readLine().equalsIgnoreCase("Y");
+                inventory.addMascota(new Perro(nombre, edad, estado,
+                        fechaNacimiento, razaPerro, pulgas));
+
+            }
+            case 2-> {
+                    System.out.println("Color");
+                    String colorGato = br.readLine();
+                    System.out.println("Pelo largo?(Y/N)");
+                    boolean peloLargoGato = br.readLine().equalsIgnoreCase("Y");
+                    inventory.addMascota(new Gato(nombre, edad, estado, fechaNacimiento, colorGato, peloLargoGato));
+            }
+
+            case 3-> {
+                System.out.println("Origen?");
+                String origenLoro = br.readLine();
+                System.out.println("El loro habla ? (Y/N)");
+                boolean habla = br.readLine().equalsIgnoreCase("Y");
+                inventory.addMascota(new Loro(nombre, edad, estado, fechaNacimiento, origenLoro, habla));
+            }
+            case 4->{
+                System.out.println("Color?");
+                String colorCanario = br.readLine();
+                System.out.println("El canario canta ? (Y/N)");
+                boolean canta = br.readLine().equalsIgnoreCase("Y");
+                inventory.addMascota(new Canario(nombre, edad, estado, fechaNacimiento, colorCanario, canta));
+            }
+            }
+
+
+
+
+
+        }
+    }
+
+

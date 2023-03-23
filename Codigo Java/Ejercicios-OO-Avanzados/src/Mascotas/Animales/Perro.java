@@ -1,5 +1,6 @@
 package Mascotas.Animales;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Perro extends Mascota{
@@ -13,6 +14,8 @@ public class Perro extends Mascota{
         super(nombre, edad, estado, fechaNacimiento);
         this.raza = raza;
         this.tienePulgas=tienePulgas;
+        //La primea vez metemosun dato
+        this.historial.add(new Revision("Lugar de Consulta","Tipo de Consulta", LocalDate.now(),null));
     }
 
     public String getRaza() {

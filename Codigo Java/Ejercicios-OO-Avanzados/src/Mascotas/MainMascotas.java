@@ -9,14 +9,9 @@ import java.util.ArrayList;
 
 public class MainMascotas {
     public static void main(String[] args) throws IOException {
-
-
         boolean continuar = true;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int a;
         Inventario miInventario = new Inventario("Nombre Tienda", new ArrayList<>());
-
-
         rellenarDatosParaProbar(miInventario);
 
         do {
@@ -31,9 +26,8 @@ public class MainMascotas {
                     6.Vaciar inventario.
                     7.Añadir revision a perro.
                     9.Salir.""");
-            a = Integer.parseInt(br.readLine());
 
-            switch (a) {
+            switch (Integer.parseInt(br.readLine())) {
                 case 0 -> miInventario.dimeSiVuela();
                 case 1 -> printearClasesNombres(miInventario.getInventarioAnimales());
                 case 2 -> {
@@ -57,8 +51,7 @@ public class MainMascotas {
                             """);
                     String entradaTeclado = br.readLine();
                     switch (Integer.parseInt(entradaTeclado)) {
-                        case 1 -> //llamo al metodo diciendole con el 1 que añadire un perro y lo devuelvo para añadirlo a mi inventario
-                                preguntasComunesAnimales(1,miInventario);
+                        case 1 -> preguntasComunesAnimales(1,miInventario);
                         case 2 -> preguntasComunesAnimales(2,miInventario);
                         case 3 -> preguntasComunesAnimales(3,miInventario);
                         case 4 -> preguntasComunesAnimales(4,miInventario);
@@ -74,11 +67,8 @@ public class MainMascotas {
                     if (br.readLine().equalsIgnoreCase("Y")) {
                         miInventario.vaciarInventario();
                         System.out.println("El inventario se ha vaciado con exito");
-                    } else {
-                        System.out.println("Se ha cancelado el vaciado del inventario");
-
+                    } else {System.out.println("Se ha cancelado el vaciado del inventario");
                     }
-
                 }
 
                 case 7 -> {

@@ -73,6 +73,12 @@ public class MainMascotas {
 
                 case 7 -> {
                     //TODO pendente de introducir  validaciones
+                    //Escribe el historial de consultas del perro
+                   for(Mascota m:miInventario.getInventarioAnimales()){
+                       if (m instanceof Perro){
+                           ((Perro) m).printearHistorial();
+                       }
+                   }
                 }
 
                 case 9 -> continuar = false;

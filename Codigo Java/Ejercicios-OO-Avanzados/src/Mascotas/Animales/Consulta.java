@@ -2,7 +2,7 @@ package Mascotas.Animales;
 
 import java.time.LocalDate;
 
-public class Revision {
+public class Consulta {
 
     private String lugarConsulta;
     private String tipoConsulta;
@@ -11,9 +11,9 @@ public class Revision {
 
     private LocalDate fechadeAlta;
 
-    public Revision(){}
+    public Consulta(){}
 
-    public Revision(String lugarConsulta, String tipoConsulta, LocalDate fechadeIngreso, LocalDate fechadeAlta) {
+    public Consulta(String lugarConsulta, String tipoConsulta, LocalDate fechadeIngreso, LocalDate fechadeAlta) {
         this.lugarConsulta = lugarConsulta;
         this.tipoConsulta = tipoConsulta;
         this.fechadeIngreso = fechadeIngreso;
@@ -50,5 +50,15 @@ public class Revision {
 
     public void setFechadeAlta(LocalDate fechadeAlta) {
         this.fechadeAlta = fechadeAlta;
+    }
+
+    @Override
+    public String toString() {
+        return "Consulta{" +
+                "lugarConsulta='" + lugarConsulta + '\'' +
+                ", tipoConsulta='" + tipoConsulta + '\'' +
+                ", fechadeIngreso=" + fechadeIngreso +
+                ", fechadeAlta=" + fechadeAlta +
+                '}';
     }
 }

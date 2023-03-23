@@ -7,7 +7,7 @@ public class Perro extends Mascota{
     private String raza;
     private boolean tienePulgas;
 
-    private ArrayList <Revision> historial = new ArrayList<>();
+    private ArrayList <Consulta> historial = new ArrayList<>();
 
     public Perro(String nombre, int edad, String estado, String fechaNacimiento,
                  String raza,boolean tienePulgas) {
@@ -15,7 +15,7 @@ public class Perro extends Mascota{
         this.raza = raza;
         this.tienePulgas=tienePulgas;
         //La primea vez metemosun dato
-        this.historial.add(new Revision("Lugar de Consulta","Tipo de Consulta", LocalDate.now(),null));
+        this.historial.add(new Consulta("Lugar de Consulta","Tipo de Consulta", LocalDate.now(),null));
     }
 
     public String getRaza() {
@@ -45,11 +45,20 @@ public class Perro extends Mascota{
         System.out.println("\n");
     }
 
+    public void printearHistorial(){
+        for (Consulta c: historial){
+            System.out.println(c.toString());
+        }
+    }
+
+
     @Override
     public void hablar() {
         System.out.println("GUAU GUAU");
 
     }
+
+
 
     @Override
     public String toString() {

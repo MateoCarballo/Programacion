@@ -82,7 +82,7 @@ public class MainMascotas {
                 case 3 ->{
 
                     if(miInventario.mostrarDatosTodosLosAnimales()) {
-                        System.out.println("La lista está vacia me devuelve false");
+                        System.out.println("No hay ningun registro en el inventario");
                     }
 
                 }
@@ -129,7 +129,7 @@ public class MainMascotas {
                              */
 
                             misMascotasAux= miInventario.getInventarioAnimales();
-                            miInventario.vaciarInventario();
+                            //miInventario.vaciarInventario();
                             misMascotasAux.add(new Perro(nombrePerro,edadPerro,estadoPerro,
                                     fechaNacPerro,razaPerro,pulgas));
                             miInventario.setInventarioAnimales(misMascotasAux);
@@ -156,7 +156,7 @@ public class MainMascotas {
                             }
 
                             misMascotasAux= miInventario.getInventarioAnimales();
-                            miInventario.vaciarInventario();
+                            //miInventario.vaciarInventario();
                             misMascotasAux.add(new Gato(nombreGato,edadGato,estadGato,fechaNacGato,colorGato,peloLargoGato));
                             miInventario.setInventarioAnimales(misMascotasAux);
 
@@ -183,18 +183,9 @@ public class MainMascotas {
                             }
 
                             misMascotasAux= miInventario.getInventarioAnimales();
-                            miInventario.vaciarInventario();
                             misMascotasAux.add(new Loro(nombreLoro,edadLoro,estadoLoro,fechaNacLoro,origenLoro,habla));
                             miInventario.setInventarioAnimales(misMascotasAux);
-/*
-                            miInventario.addMascota(loro0);
-                            miInventario.addMascota(loro1);
-                            miInventario.addMascota(loro2);
-                            miInventario.addMascota(loro3);
-                            miInventario.addMascota(loro4);
-
- */
-                        }
+                }
                         case 4 -> {
 
 
@@ -219,8 +210,6 @@ public class MainMascotas {
                             miInventario.vaciarInventario();
                             misMascotasAux.add(new Canario(nombreCanario,edadCanario,estadoCanario,fechaNacCanario,colorCanario,canta));
                             miInventario.setInventarioAnimales(misMascotasAux);
-
-                            //miInventario.addMascota(canario);
                         }
                     }
                 }

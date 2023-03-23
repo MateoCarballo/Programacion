@@ -5,7 +5,8 @@ public class Gato extends Mascota {
     private String color;
     private boolean peloLargo;
 
-    public Gato(String nombre, int edad, String estado, String fechaNacimiento, String color, boolean peloLargo) {
+    public Gato(String nombre, int edad, String estado,
+                String fechaNacimiento, String color, boolean peloLargo) {
         super(nombre, edad, estado, fechaNacimiento);
         this.color = color;
         this.peloLargo = peloLargo;

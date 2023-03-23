@@ -2,17 +2,39 @@ package Mascotas;
 
 import Mascotas.Animales.*;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class Inventario implements MetodosInventario {
     private String nombreTienda;
-    private List<Mascota> inventarioAnimales ;
-
-    public Inventario(String nombreTienda, List<Mascota> inventarioAnimales) {
+    private ArrayList<Mascota> inventarioAnimales ;
+s
+    public Inventario(String nombreTienda, ArrayList<Mascota> inventarioAnimales) {
         this.nombreTienda = nombreTienda;
         this.inventarioAnimales = inventarioAnimales;
     }
+
+    public String getNombreTienda() {
+        return nombreTienda;
+    }
+
+    public void setNombreTienda(String nombreTienda) {
+        this.nombreTienda = nombreTienda;
+    }
+
+    public ArrayList<Mascota> getInventarioAnimales() {
+        return inventarioAnimales;
+    }
+
+    public void setInventarioAnimales(ArrayList<Mascota> inventarioAnimales) {
+        this.inventarioAnimales = inventarioAnimales;
+    }
+
+
+/*
+     Metodo para mostrar el tipo de animal (nombre de la clase) y l nombre. Para qeu cada clase solo
+     conozca lo que hay dentro de ella utilizo un ArrayList auxiliar que dentro solo tiene los datos
+     que necesiamos en cada uno de los elementos
+     */
 
     public ArrayList<String> mostrarListaAnimales() {
         ArrayList <String> salida= new ArrayList<>();
@@ -41,11 +63,20 @@ public class Inventario implements MetodosInventario {
         }
       return  itsEmpty;
     }
-
+/*
+Metodos para añadir o eliminar elementos al ArrayList y vaciarla
+ */
     public void addMascota(Mascota mascotaParaAñadir) {
         this.inventarioAnimales.add(mascotaParaAñadir);
     }
 
+    public void removeMascota(String nombreMascota){
+        for (int i = 0; i < inventarioAnimales.size(); i++) {
+            if(inventarioAnimales.get(i).getNombre().equalsIgnoreCase(nombreMascota)){
+                removeMascota(i);
+            }
+        }
+    }
 
     public void vaciarInventario(){
         this.inventarioAnimales.clear();
@@ -59,13 +90,7 @@ public class Inventario implements MetodosInventario {
         }
     }
 
-    public void removeMascota(String nombreMascota){
-        for (int i = 0; i < inventarioAnimales.size(); i++) {
-            if(inventarioAnimales.get(i).getNombre().equalsIgnoreCase(nombreMascota)){
-             removeMascota(i);
-            }
-        }
-    }
+
     public void removeMascota(int indice){
         inventarioAnimales.remove(indice);
     }

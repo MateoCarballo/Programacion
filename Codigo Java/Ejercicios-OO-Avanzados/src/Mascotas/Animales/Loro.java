@@ -20,7 +20,8 @@ public class Loro extends Ave{
         this.habla = habla;
     }
 
-    public Loro(String nombre, int edad, String estado, String fechaNacimiento, String origen, boolean habla) {
+    public Loro(String nombre, int edad, String estado, String fechaNacimiento,
+                String origen, boolean habla) {
         super(nombre, edad, estado, fechaNacimiento);
         this.origen = origen;
         this.habla = habla;

@@ -18,7 +18,7 @@ public class MainMascotas {
         Inventario miInventario = new Inventario("Nombre Tienda", new ArrayList<Mascota>());
 
 
-        rellenarDatosParaProbar(Inventario miInventario);
+        rellenarDatosParaProbar(miInventario);
 
         do {
             System.out.println("""
@@ -30,6 +30,7 @@ public class MainMascotas {
                     4.Añadir mascota.
                     5.Eliminar mascota(por nombre).
                     6.Vaciar inventario.
+                    7.Añadir revision a perro.
                     9.Salir.                
                     """);
             a = Integer.parseInt(br.readLine());
@@ -202,6 +203,11 @@ public class MainMascotas {
                     }
 
                 }
+
+                case 7 -> {
+                    sout
+                }
+
                 case 9 -> {
                     continuar = false;
                 }

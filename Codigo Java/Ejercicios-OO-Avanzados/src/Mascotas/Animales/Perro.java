@@ -1,8 +1,12 @@
 package Mascotas.Animales;
 
+import java.util.ArrayList;
+
 public class Perro extends Mascota{
     private String raza;
     private boolean tienePulgas;
+
+    private ArrayList <Revision> historial = new ArrayList<>();
 
     public Perro(String nombre, int edad, String estado, String fechaNacimiento,
                  String raza,boolean tienePulgas) {

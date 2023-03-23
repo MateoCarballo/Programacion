@@ -1,7 +1,6 @@
 package Mascotas;
 
 import Mascotas.Animales.*;
-
 import java.util.*;
 
 public class Inventario implements MetodosInventario {

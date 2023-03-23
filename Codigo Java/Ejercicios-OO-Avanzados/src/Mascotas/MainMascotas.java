@@ -115,9 +115,6 @@ public class MainMascotas {
                             }
 
                             //TODO no se como no usar el perroAux quiza pasarle todos los datos al metodo
-                            Mascota perroAux= new Perro(nombrePerro,edadPerro,estadoPerro,
-                                    fechaNacPerro,razaPerro,pulgas);
-                            miInventario.addMascota(perroAux);
 
                             /*
                             Mi idea aqui debajo es que se copie lo que ya existe dentro del ArrayList
@@ -145,6 +142,7 @@ public class MainMascotas {
                             String nombreGato=br.readLine();
                             System.out.println("Edad?");
                             int edadGato= Integer.parseInt(br.readLine());
+                            System.out.println("Estado del animal?");
                             String estadGato=br.readLine();
                             //TODO cambar String a formato DATE
                             System.out.println("Fecha de nacimiento?");
@@ -171,6 +169,7 @@ public class MainMascotas {
                             String nombreLoro=br.readLine();
                             System.out.println("Edad?");
                             int edadLoro= Integer.parseInt(br.readLine());
+                            System.out.println("Estado del animal?");
                             String estadoLoro=br.readLine();
                             //TODO cambar String a formato DATE
                             System.out.println("Fecha de nacimiento?");
@@ -203,6 +202,7 @@ public class MainMascotas {
                             String nombreCanario=br.readLine();
                             System.out.println("Edad?");
                             int edadCanario= Integer.parseInt(br.readLine());
+                            System.out.println("Estado del animal?");
                             String estadoCanario=br.readLine();
                             //TODO cambar String a formato DATE
                             System.out.println("Fecha de nacimiento?");

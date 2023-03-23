@@ -5,9 +5,6 @@
  */
 package EmpleadoFijoTemporal;
 
-//AntesJava8
-import fechas.Antes_Java8.Calculos_DiasEntreFechas;
-import static fechas.Antes_Java8.Calculos_DiasEntreFechas.pedirFecha;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -67,7 +64,7 @@ public class Fechas {
             try {
                 fecha = dateFormat.parse(LEE.readLine());
             } catch (IOException ex) {
-                Logger.getLogger(Calculos_DiasEntreFechas.class.getName()).log(Level.SEVERE, null, ex);
+                // Logger.getLogger(Calculos_DiasEntreFechas.class.getName()).log(Level.SEVERE, null, ex);
             }
                 
         } while(error);
@@ -163,7 +160,7 @@ public class Fechas {
                 
                 fecha = LocalDate.parse(LEE.readLine(), DateTimeFormatter.ofPattern("d/M/yyyy"));
             } catch (IOException ex) {
-                Logger.getLogger(Calculos_DiasEntreFechas.class.getName()).log(Level.SEVERE, null, ex);
+                //Logger.getLogger(Calculos_DiasEntreFechas.class.getName()).log(Level.SEVERE, null, ex);
             }
                 
         } while(error);

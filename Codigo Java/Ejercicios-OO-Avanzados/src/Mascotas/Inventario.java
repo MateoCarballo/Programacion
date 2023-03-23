@@ -7,7 +7,7 @@ import java.util.*;
 public class Inventario implements MetodosInventario {
     private String nombreTienda;
     private ArrayList<Mascota> inventarioAnimales ;
-s
+
     public Inventario(String nombreTienda, ArrayList<Mascota> inventarioAnimales) {
         this.nombreTienda = nombreTienda;
         this.inventarioAnimales = inventarioAnimales;
@@ -35,15 +35,6 @@ s
      conozca lo que hay dentro de ella utilizo un ArrayList auxiliar que dentro solo tiene los datos
      que necesiamos en cada uno de los elementos
      */
-
-    public ArrayList<String> mostrarListaAnimales() {
-        ArrayList <String> salida= new ArrayList<>();
-        for (Mascota datos:inventarioAnimales) {
-           salida.add(datos.getClass().getSimpleName()+" "+ datos.getNombre());
-        }
-
-    return salida;
-    }
 
     public void buscarMascota(String nombreMascota){
         for (Mascota datos:inventarioAnimales) {

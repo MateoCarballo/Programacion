@@ -21,7 +21,7 @@ public class MainMascotas {
 
         Inventario miInventario = new Inventario("Nombre Tienda", new ArrayList<Mascota>());
 
-        Mascota perro = new Perro("nombre perro", 10, "estado", "fechaNacimiento",
+        Mascota perro = new Perro("nombre Perro", 10, "estado", "fechaNacimiento",
                 "raza", false);
         Mascota gato = new Gato("nombre Gato", 11, "estado", "fechaNacimiento",
                 "color", false);
@@ -66,7 +66,13 @@ public class MainMascotas {
                     miInventario.dimeSiVuela();
                 }
                 case 1 -> {
-                    System.out.println((miInventario.mostrarListaAnimales()));
+                    misMascotasAux=miInventario.getInventarioAnimales();
+                    int contador0=0;
+                    for (Mascota datos:misMascotasAux) {
+                        contador0+=1;
+                        System.out.println((contador0+"->"+"Tipo de animal  "+datos.getClass().getSimpleName()+ "||"+
+                                                        " Nombre del animal-> "+ datos.getNombre()+"\n"));
+                    }
                 }
                 case 2 -> {
                     System.out.println("Nombre de la mascota?");
@@ -95,6 +101,7 @@ public class MainMascotas {
                             String nombrePerro=br.readLine();
                             System.out.println("Edad?");
                             int edadPerro= Integer.parseInt(br.readLine());
+                            System.out.println("Estado del perro?");
                             String estadoPerro=br.readLine();
                             //TODO cambar String a formato DATE
                             System.out.println("Fecha de nacimiento?");
@@ -130,7 +137,7 @@ public class MainMascotas {
                                     fechaNacPerro,razaPerro,pulgas));
                             miInventario.setInventarioAnimales(misMascotasAux);
                             //Este de abajo es solo para probar que funcione sin introducir ningun valor por teclado
-                            miInventario.addMascota(perro);
+                            //miInventario.addMascota(perro);
                         }
                         case 2 -> {
 
@@ -156,7 +163,7 @@ public class MainMascotas {
                             miInventario.setInventarioAnimales(misMascotasAux);
 
                             //Este gato de abajo era solo para probar que funcionen las busquedas y ordenadciones
-                            miInventario.addMascota(gato);
+                            //miInventario.addMascota(gato);
                         }
                         case 3 -> {
 
@@ -180,12 +187,14 @@ public class MainMascotas {
                             miInventario.vaciarInventario();
                             misMascotasAux.add(new Loro(nombreLoro,edadLoro,estadoLoro,fechaNacLoro,origenLoro,habla));
                             miInventario.setInventarioAnimales(misMascotasAux);
-
+/*
                             miInventario.addMascota(loro0);
                             miInventario.addMascota(loro1);
                             miInventario.addMascota(loro2);
                             miInventario.addMascota(loro3);
                             miInventario.addMascota(loro4);
+
+ */
                         }
                         case 4 -> {
 
@@ -211,10 +220,8 @@ public class MainMascotas {
                             misMascotasAux.add(new Canario(nombreCanario,edadCanario,estadoCanario,fechaNacCanario,colorCanario,canta));
                             miInventario.setInventarioAnimales(misMascotasAux);
 
-                            miInventario.addMascota(canario);
+                            //miInventario.addMascota(canario);
                         }
-                        default ->
-                                throw new IllegalStateException("Unexpected value: " + Integer.parseInt(entradaTeclado));
                     }
                 }
                 case 5->{

@@ -106,7 +106,7 @@ Metodos para añadir o eliminar elementos al ArrayList y vaciarla
 
         */
     }
-
+//TODO pendiente dar de alta a perros ingresados
     public void añadirConsultaPerro(int idConsulta,int indicePerro, String lugarConsulta, String motivoConsulta,boolean consultaAbierta){
         if (inventarioAnimales.get(indicePerro) instanceof Perro){
             ((Perro) inventarioAnimales.get(indicePerro)).añadirConsultaHisorial(idConsulta,lugarConsulta,motivoConsulta,consultaAbierta);

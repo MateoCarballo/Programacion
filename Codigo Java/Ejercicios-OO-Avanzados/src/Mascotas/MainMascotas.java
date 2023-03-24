@@ -26,6 +26,7 @@ public class MainMascotas {
                     5.Eliminar mascota(por nombre).
                     6.Vaciar inventario.
                     7.Añadir revision a perro.
+                    8.Ver historiales de todos los perros.
                     9.Salir.""");
 
             switch (Integer.parseInt(br.readLine())) {
@@ -72,7 +73,14 @@ public class MainMascotas {
                     }
                 }
 
-                case 7 -> {
+                case 7-> {
+                    System.out.println("Nombre del perro?");
+                    String nombrePerro= br.readLine();
+                     miInventario.buscarMascota(nombrePerro);
+                    System.out.println("El perro que buscas es -> "+);
+                }
+
+                case 8 -> {
                     //TODO pendente de introducir  validaciones
                     //Escribe el historial de consultas del perro
                    for(Mascota m:miInventario.getInventarioAnimales()){
@@ -111,6 +119,9 @@ public class MainMascotas {
                 "color canario", false);
 
         inventory.addMascota(perro);
+        /*Casteamos a perro para que coincida el tipo de dato.
+        rellenarHistorialPerro((Perro)perro);
+         */
         inventory.addMascota(gato);
         inventory.addMascota(loro0);
         inventory.addMascota(loro1);
@@ -120,15 +131,21 @@ public class MainMascotas {
         inventory.addMascota(canario);
     }
 
-    public static void rellenarHistorialPerro(Perro perroEjemplo){
-        String lugarConsuta= "Lugar donde se realiza la consulta";
-        String tipodeConsulta=" Tratamiento realizado en el centro";
-        LocalDate fIngreso= LocalDate.now();
-        LocalDate fAlta=LocalDate.now();
+    public static void añadirConsultaHistorial(Perro perroEjemplo) throws IOException{
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        //Aqui podriamos pasarle un atributo del inventario con el nombre para que el que llame al metodo
+        //se idintifique.
+
+        System.out.println("Lugar de la consulta?");
+        String lugarConsuta = br.readLine();
+        System.out.println("Tipo de consulta realizada");
+        String tipodeConsulta =br.readLine();
+        LocalDate fIngreso = LocalDate.now();
         perroEjemplo.añadirConsultaHisorial(lugarConsuta,
-                                            tipodeConsulta,
-                                            fIngreso,
-                                            fAlta);
+                tipodeConsulta,
+                fIngreso);
+
     }
     public static void printearClasesNombres(ArrayList <Mascota> misMascotas){
         int contador0 = 0;

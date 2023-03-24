@@ -11,13 +11,14 @@ public class Consulta {
 
     private LocalDate fechadeAlta;
 
+    private boolean tratamientoCompletado=false;
+
     public Consulta(){}
 
-    public Consulta(String lugarConsulta, String tipoConsulta, LocalDate fechadeIngreso, LocalDate fechadeAlta) {
+    public Consulta(String lugarConsulta, String tipoConsulta, LocalDate fechadeIngreso) {
         this.lugarConsulta = lugarConsulta;
         this.tipoConsulta = tipoConsulta;
         this.fechadeIngreso = fechadeIngreso;
-        this.fechadeAlta = fechadeAlta;
     }
 
     public String getLugarConsulta() {
@@ -50,6 +51,14 @@ public class Consulta {
 
     public void setFechadeAlta(LocalDate fechadeAlta) {
         this.fechadeAlta = fechadeAlta;
+    }
+
+    public boolean isTratamientoCompletado() {
+        return tratamientoCompletado;
+    }
+
+    public void setTratamientoCompletado(boolean tratamientoCompletado) {
+        this.tratamientoCompletado = tratamientoCompletado;
     }
 
     @Override

@@ -15,7 +15,7 @@ public class Perro extends Mascota{
         this.raza = raza;
         this.tienePulgas=tienePulgas;
         //La primea vez metemosun dato
-        this.historial.add(new Consulta("Lugar de Consulta","Tipo de Consulta", LocalDate.now(),null));
+        this.historial.add(new Consulta("Lugar de Consulta","Tipo de Consulta", LocalDate.now()));
     }
 
     public String getRaza() {
@@ -45,8 +45,8 @@ public class Perro extends Mascota{
         System.out.println("\n");
     }
 
-    public void añadirConsultaHisorial(String lugarConsuta, String tipodeConsulta, LocalDate fIngreso, LocalDate fAlta){
-        historial.add(new Consulta(lugarConsuta,tipodeConsulta,fIngreso,fAlta));
+    public void añadirConsultaHisorial(String lugarConsuta, String tipodeConsulta, LocalDate fIngreso){
+        historial.add(new Consulta(lugarConsuta,tipodeConsulta,fIngreso));
     }
 
     public void printearHistorial(){

@@ -44,6 +44,16 @@ public class Inventario implements MetodosInventario {
         }
     }
 
+    public Mascota buscarMascota(String nombreMascota,Mascota mascotaEncontrada){
+
+        for (int i = 0; i < inventarioAnimales.size(); i++) {
+            if(inventarioAnimales.get(i).getNombre().equalsIgnoreCase(nombreMascota)){
+                return inventarioAnimales.get(i);
+                break;
+            }
+        }
+    }
+
     public boolean mostrarDatosTodosLosAnimales() {
         boolean itsEmpty=inventarioAnimales.isEmpty();
         if(!itsEmpty){

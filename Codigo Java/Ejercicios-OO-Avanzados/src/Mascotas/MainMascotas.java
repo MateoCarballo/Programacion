@@ -152,7 +152,7 @@ public class MainMascotas {
                 miInventario.añadirConsultaPerro(idconsulta,indiceMascotaBuscada,lugarConsulta,
                         motivoConsulta,false);
             }
-
+idconsulta+=1;
         }else{
             System.out.println("Mascota no encontrada revise nombre introducido");
         }

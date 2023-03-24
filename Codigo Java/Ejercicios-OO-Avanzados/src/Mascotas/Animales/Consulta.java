@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 public class Consulta {
 
+
+    private  int idConsulta;
     private String lugarConsulta;
     private String tipoConsulta;
 
@@ -15,7 +17,8 @@ public class Consulta {
 
     public Consulta(){}
 
-    public Consulta(String lugarConsulta, String tipoConsulta, LocalDate fechadeIngreso) {
+    public Consulta(int idConsulta, String lugarConsulta, String tipoConsulta, LocalDate fechadeIngreso) {
+        this.idConsulta = idConsulta;
         this.lugarConsulta = lugarConsulta;
         this.tipoConsulta = tipoConsulta;
         this.fechadeIngreso = fechadeIngreso;

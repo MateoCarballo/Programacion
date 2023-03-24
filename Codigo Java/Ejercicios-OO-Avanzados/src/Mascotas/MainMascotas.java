@@ -9,6 +9,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class MainMascotas {
+    static int idconsulta=0;
+
     public static void main(String[] args) throws IOException {
         boolean continuar = true;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -144,10 +146,10 @@ public class MainMascotas {
             String motivoConsulta=br.readLine();
             System.out.println("Dejar consulta abierta?(La mascota requiere ingreso)(Y/N)");
             if (br.readLine().equalsIgnoreCase("Y")){
-                miInventario.añadirConsultaPerro(indiceMascotaBuscada,lugarConsulta,
+                miInventario.añadirConsultaPerro(idconsulta,indiceMascotaBuscada,lugarConsulta,
                         motivoConsulta,true);
             }else{
-                miInventario.añadirConsultaPerro(indiceMascotaBuscada,lugarConsulta,
+                miInventario.añadirConsultaPerro(idconsulta,indiceMascotaBuscada,lugarConsulta,
                         motivoConsulta,false);
             }
 

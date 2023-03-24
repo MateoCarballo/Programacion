@@ -5,6 +5,7 @@ import Mascotas.Animales.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class MainMascotas {
@@ -119,6 +120,16 @@ public class MainMascotas {
         inventory.addMascota(canario);
     }
 
+    public static void rellenarHistorialPerro(Perro perroEjemplo){
+        String lugarConsuta= "Lugar donde se realiza la consulta";
+        String tipodeConsulta=" Tratamiento realizado en el centro";
+        LocalDate fIngreso= LocalDate.now();
+        LocalDate fAlta=LocalDate.now();
+        perroEjemplo.añadirConsultaHisorial(lugarConsuta,
+                                            tipodeConsulta,
+                                            fIngreso,
+                                            fAlta);
+    }
     public static void printearClasesNombres(ArrayList <Mascota> misMascotas){
         int contador0 = 0;
         for (Mascota datos : misMascotas) {
@@ -175,11 +186,6 @@ public class MainMascotas {
                 inventory.addMascota(new Canario(nombre, edad, estado, fechaNacimiento, colorCanario, canta));
             }
             }
-
-
-
-
-
         }
     }
 

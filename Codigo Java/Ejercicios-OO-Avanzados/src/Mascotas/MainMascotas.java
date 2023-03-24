@@ -82,12 +82,17 @@ public class MainMascotas {
 
                 case 8 -> {
                     //TODO pendente de introducir  validaciones
-                    //Escribe el historial de consultas del perro
+                    //Escribe el historial de consultas del todos los perros
                    for(Mascota m:miInventario.getInventarioAnimales()){
                        if (m instanceof Perro){
                            ((Perro) m).printearHistorial();
                        }
                    }
+                }
+                case 11->{
+                    System.out.println("Que perro va a dar de alta?");
+                    miInventario.
+                    String nombrePerro=br.readLine()
                 }
 
                 case 9 -> continuar = false;
@@ -152,7 +157,7 @@ public class MainMascotas {
                 miInventario.añadirConsultaPerro(idconsulta,indiceMascotaBuscada,lugarConsulta,
                         motivoConsulta,false);
             }
-idconsulta+=1;
+            idconsulta+=1;
         }else{
             System.out.println("Mascota no encontrada revise nombre introducido");
         }

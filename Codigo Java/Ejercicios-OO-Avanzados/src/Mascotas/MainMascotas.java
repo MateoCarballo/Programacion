@@ -74,10 +74,7 @@ public class MainMascotas {
                 }
 
                 case 7-> {
-                    System.out.println("Nombre del perro?");
-                    String nombrePerro= br.readLine();
-                     miInventario.buscarMascota(nombrePerro);
-                    System.out.println("El perro que buscas es -> "+);
+                    añadirConsultaHistorial(miInventario);
                 }
 
                 case 8 -> {
@@ -131,20 +128,24 @@ public class MainMascotas {
         inventory.addMascota(canario);
     }
 
-    public static void añadirConsultaHistorial(Perro perroEjemplo) throws IOException{
+    public static void añadirConsultaHistorial(Inventario miInventario) throws IOException{
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        //Aqui podriamos pasarle un atributo del inventario con el nombre para que el que llame al metodo
-        //se idintifique.
-
-        System.out.println("Lugar de la consulta?");
-        String lugarConsuta = br.readLine();
-        System.out.println("Tipo de consulta realizada");
-        String tipodeConsulta =br.readLine();
-        LocalDate fIngreso = LocalDate.now();
-        perroEjemplo.añadirConsultaHisorial(lugarConsuta,
-                tipodeConsulta,
-                fIngreso);
+        System.out.println("Nombre del perro?");
+        String nombrePerro= br.readLine();
+        int indiceMascotaBuscada=miInventario.buscarMascotaPerro(nombrePerro);
+        if (indiceMascotaBuscada>=0){
+            System.out.println("Mascota encontrada");
+            miInventario.buscarMascota(nombrePerro);
+            System.out.println("Lugar de consulta?");
+            String lugarConsulta=br.readLine();
+            System.out.println("Motivo de la consulta");
+            String motivoConsulta=br.readLine();
+            miInventario.añadirConsultaPerro(indiceMascotaBuscada,lugarConsulta,
+                    motivoConsulta);
+        }else{
+            System.out.println("Mascota no encontrada revise nombre introducido");
+        }
 
     }
     public static void printearClasesNombres(ArrayList <Mascota> misMascotas){

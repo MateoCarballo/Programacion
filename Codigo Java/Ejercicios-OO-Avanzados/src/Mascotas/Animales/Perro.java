@@ -45,8 +45,8 @@ public class Perro extends Mascota{
         System.out.println("\n");
     }
 
-    public void añadirConsultaHisorial(String lugarConsuta, String tipodeConsulta, LocalDate fIngreso){
-        historial.add(new Consulta(lugarConsuta,tipodeConsulta,fIngreso));
+    public void añadirConsultaHisorial(String lugarConsuta, String tipodeConsulta){
+        historial.add(new Consulta(lugarConsuta,tipodeConsulta,LocalDate.now()));
     }
 
     public void printearHistorial(){

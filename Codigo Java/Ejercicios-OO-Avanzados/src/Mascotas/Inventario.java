@@ -37,21 +37,21 @@ public class Inventario implements MetodosInventario {
 
     public void buscarMascota(String nombreMascota){
         for (Mascota datos:inventarioAnimales) {
-            if(datos.getNombre().equalsIgnoreCase(nombreMascota)){
+            if (datos.getNombre().equalsIgnoreCase(nombreMascota)) {
                 datos.muestra();
                 break;
             }
         }
     }
 
-    public Mascota buscarMascota(String nombreMascota,Mascota mascotaEncontrada){
-
+    public int buscarMascotaPerro(String nombreMascota){
+    int indiceMascotaEncontrada=-1;
         for (int i = 0; i < inventarioAnimales.size(); i++) {
-            if(inventarioAnimales.get(i).getNombre().equalsIgnoreCase(nombreMascota)){
-                return inventarioAnimales.get(i);
-                break;
+            if(inventarioAnimales.get(i).getNombre().equalsIgnoreCase(nombreMascota)) {
+             indiceMascotaEncontrada=i;
             }
         }
+       return indiceMascotaEncontrada;
     }
 
     public boolean mostrarDatosTodosLosAnimales() {
@@ -105,5 +105,11 @@ Metodos para añadir o eliminar elementos al ArrayList y vaciarla
       inventarioAnimales.sort(Comparator.comparing(Mascota::getNombre).reversed());
 
         */
+    }
+
+    public void añadirConsultaPerro(int indicePerro, String lugarConsulta, String motivoConsulta){
+        if (inventarioAnimales.get(indice) instanceof Perro){
+            ((Perro) inventarioAnimales.get(indicePerro)).añadirConsultaHisorial(lugarConsulta,motivoConsulta);
+        }
     }
 }

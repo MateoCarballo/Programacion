@@ -45,8 +45,15 @@ public class Perro extends Mascota{
         System.out.println("\n");
     }
 
-    public void añadirConsultaHisorial(String lugarConsuta, String tipodeConsulta){
-        historial.add(new Consulta(lugarConsuta,tipodeConsulta,LocalDate.now()));
+    public void añadirConsultaHisorial(String lugarConsuta, String tipodeConsulta,boolean consultaAbierta){
+        if (consultaAbierta){
+            historial.add(new Consulta(lugarConsuta,tipodeConsulta,LocalDate.now()));
+        }else{
+            historial.add(new Consulta(lugarConsuta,tipodeConsulta,LocalDate.now()));
+            //Si la consulta no requiere ingreso se setea la fechadeAlta con la misma fecha que el ingreso.
+            historial.get(historial.size()-1).setFechadeAlta(LocalDate.now());
+        }
+
     }
 
     public void printearHistorial(){

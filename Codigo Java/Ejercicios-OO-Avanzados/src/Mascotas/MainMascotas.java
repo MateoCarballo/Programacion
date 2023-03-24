@@ -27,6 +27,7 @@ public class MainMascotas {
                     6.Vaciar inventario.
                     7.Añadir revision a perro.
                     8.Ver historiales de todos los perros.
+                    
                     9.Salir.""");
 
             switch (Integer.parseInt(br.readLine())) {
@@ -141,8 +142,15 @@ public class MainMascotas {
             String lugarConsulta=br.readLine();
             System.out.println("Motivo de la consulta");
             String motivoConsulta=br.readLine();
-            miInventario.añadirConsultaPerro(indiceMascotaBuscada,lugarConsulta,
-                    motivoConsulta);
+            System.out.println("Dejar consulta abierta?(La mascota requiere ingreso)(Y/N)");
+            if (br.readLine().equalsIgnoreCase("Y")){
+                miInventario.añadirConsultaPerro(indiceMascotaBuscada,lugarConsulta,
+                        motivoConsulta,true);
+            }else{
+                miInventario.añadirConsultaPerro(indiceMascotaBuscada,lugarConsulta,
+                        motivoConsulta,false);
+            }
+
         }else{
             System.out.println("Mascota no encontrada revise nombre introducido");
         }

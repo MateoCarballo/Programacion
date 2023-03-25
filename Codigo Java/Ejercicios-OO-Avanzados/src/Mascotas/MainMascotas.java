@@ -145,16 +145,23 @@ public class MainMascotas {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Nombre del perro?");
         String nombrePerro= br.readLine();
-
+        if(validaDatosTeclado.validarLetras(nombrePerro)){
+            System.out.println("Dato ok");
+        }
         int indiceMascotaBuscada=miInventario.buscarMascotaPerro(nombrePerro);
         if (indiceMascotaBuscada>=0){
             System.out.println("Mascota encontrada");
             miInventario.buscarMascota(nombrePerro);
             System.out.println("Lugar de consulta?");
             String lugarConsulta=br.readLine();
-
+            if(validaDatosTeclado.validarLetras(lugarConsulta)){
+                System.out.println("Dato ok");
+            }
             System.out.println("Motivo de la consulta");
             String motivoConsulta=br.readLine();
+            if(validaDatosTeclado.validarLetras(motivoConsulta)){
+                System.out.println("Dato ok");
+            }
             System.out.println("Dejar consulta abierta?(La mascota requiere ingreso)(Y/N)");
             if (br.readLine().equalsIgnoreCase("Y")){
                 miInventario.añadirConsultaPerro(idconsulta,indiceMascotaBuscada,lugarConsulta,
@@ -182,15 +189,33 @@ public class MainMascotas {
 
     public static void preguntasComunesAnimales(int tipodeInsercion,Inventario inventory) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        Validaciones validaDatosTeclado= new Validaciones();
         System.out.println("Nombre?");
         String nombre = br.readLine();
+        if(validaDatosTeclado.validarLetras(nombre)){
+            System.out.println("Dato ok");
+        }
+
+        //TODO calcular edad a partir de la fecha introducida y no preguntarla
+        //TODO reducir el codigo, usar misma entrada con numero de ciclos y con el switch cambiar las preguntas especificas
         System.out.println("Edad?");
-        int edad = Integer.parseInt(br.readLine());
-        System.out.println("Estado?");
+        String edadS = br.readLine();
+        int edad=0;
+        if(validaDatosTeclado.validarNumeros(edadS)){
+            System.out.println("Dato ok");
+        }
+        edad=Integer.parseInt(edadS);
+        System.out.println("Estado?(OK/NOK)");
         String estado = br.readLine();
+        if(validaDatosTeclado.validarOKorNOK(estado)){
+            System.out.println("Dato ok");
+        }
         //TODO cambar String a formato DATE
         System.out.println("Fecha de nacimiento?");
         String fechaNacimiento = br.readLine();
+        if(validaDatosTeclado.validarFecha(fechaNacimiento)){
+            System.out.println("Formato fecha correcto");
+        }
 
         switch (tipodeInsercion){
             case 1-> {

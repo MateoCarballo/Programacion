@@ -13,7 +13,7 @@ public class Validaciones implements ValidacionesInterface {
         }
 
         // Creamos un objeto SimpleDateFormat para validar la fecha
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat(formatoFecha);
         dateFormat.setLenient(false);
 
         try {
@@ -50,5 +50,20 @@ public class Validaciones implements ValidacionesInterface {
             return false;
         }
     }
+
+    @Override
+    public boolean validarOKorNOK(String entrada) {
+        if (entrada == null || entrada.isEmpty()) {
+            return false;
+        }
+        try {
+            if (entrada.equalsIgnoreCase("OK") || entrada.equalsIgnoreCase("NOK")){
+                return true;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 }
 

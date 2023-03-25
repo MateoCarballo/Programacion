@@ -7,52 +7,53 @@ import java.util.Date;
 public class Validaciones implements ValidacionesInterface {
 
     @Override
-    public boolean validarFecha(String fecha) {
+    public boolean validarFecha(String fecha) throws Exception {
         if (fecha == null || fecha.isEmpty()) {
             return false;
         }
-
-        // Creamos un objeto SimpleDateFormat para validar la fecha
         SimpleDateFormat dateFormat = new SimpleDateFormat(formatoFecha);
+        /*
+        Configura el formato de la fecha en modo estricto,
+        no pasa una si le damos true permite 31 de Febrero y lo interpreta como 3 de marzo
+         */
         dateFormat.setLenient(false);
-
         try {
-            // Intentamos parsear la fecha
             Date date = dateFormat.parse(fecha);
             return true;
-        } catch (ParseException e) {
-            // Si se produce una excepción, la fecha es inválida
-            return false;
-        }
-    }
-
-    @Override
-    public boolean validarLetras(String texto) {
-        // Verificamos si la cadena es nula o vacía
-        if (texto == null || texto.isEmpty()) {
-            return false;
-        }
-        try {
-            return texto.matches("^[a-zA-Z]+$");
         } catch (Exception e) {
-            return false;
+            throw new Exception("Dato incorrecto");
         }
     }
 
     @Override
-    public boolean validarNumeros(String numeros) {
+    public String validarLetras(String entradaTeclado) throws Exception {
+        try {
+            if (entradaTeclado.matches("^[a-zA-Z]+$")) {
+                return entradaTeclado;
+            } else {
+                throw new IllegalArgumentException("Compruebe sus entradas por teclado, " +
+                        "no cumple las especificaciones.");
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    @Override
+    public boolean validarNumeros(String numeros) throws Exception {
         if (numeros == null || numeros.isEmpty()) {
             return false;
         }
         try {
             return numeros.matches("^[0-9]+$");
         } catch (Exception e) {
-            return false;
+            throw new Exception("Dato incorrecto");
         }
     }
 
     @Override
-    public boolean validarOKorNOK(String entrada) {
+    public boolean validarOKorNOK(String entrada) throws Exception {
         if (entrada == null || entrada.isEmpty()) {
             return false;
         }
@@ -61,8 +62,9 @@ public class Validaciones implements ValidacionesInterface {
                 return true;
             }
         } catch (Exception e) {
-            return false;
+            throw new Exception("Dato incorrecto");
         }
+        return false;
     }
 
 }

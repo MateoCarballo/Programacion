@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class MainMascotas {
     static int idconsulta=0;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         boolean continuar = true;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         Inventario miInventario = new Inventario("Nombre Tienda", new ArrayList<>());
@@ -140,28 +140,23 @@ public class MainMascotas {
         inventory.addMascota(canario);
     }
 
-    public static void añadirConsultaHistorial(Inventario miInventario) throws IOException{
+    public static void añadirConsultaHistorial(Inventario miInventario) throws Exception {
         Validaciones validaDatosTeclado= new Validaciones();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Nombre del perro?");
-        String nombrePerro= br.readLine();
-        if(validaDatosTeclado.validarLetras(nombrePerro)){
-            System.out.println("Dato ok");
-        }
+        String nombrePerro;
+        nombrePerro=validaDatosTeclado.validarLetras(br.readLine());
+
         int indiceMascotaBuscada=miInventario.buscarMascotaPerro(nombrePerro);
         if (indiceMascotaBuscada>=0){
             System.out.println("Mascota encontrada");
             miInventario.buscarMascota(nombrePerro);
             System.out.println("Lugar de consulta?");
             String lugarConsulta=br.readLine();
-            if(validaDatosTeclado.validarLetras(lugarConsulta)){
-                System.out.println("Dato ok");
-            }
+            lugarConsulta= validaDatosTeclado.validarLetras(br.readLine());
             System.out.println("Motivo de la consulta");
             String motivoConsulta=br.readLine();
-            if(validaDatosTeclado.validarLetras(motivoConsulta)){
-                System.out.println("Dato ok");
-            }
+            motivoConsulta= validaDatosTeclado.validarLetras(br.readLine());
             System.out.println("Dejar consulta abierta?(La mascota requiere ingreso)(Y/N)");
             if (br.readLine().equalsIgnoreCase("Y")){
                 miInventario.añadirConsultaPerro(idconsulta,indiceMascotaBuscada,lugarConsulta,
@@ -187,14 +182,12 @@ public class MainMascotas {
     // mi idea con este metdo es no repeir tantas veces lo mismo en cada uno de los case del menu principal
 
 
-    public static void preguntasComunesAnimales(int tipodeInsercion,Inventario inventory) throws IOException{
+    public static void preguntasComunesAnimales(int tipodeInsercion,Inventario inventory) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         Validaciones validaDatosTeclado= new Validaciones();
         System.out.println("Nombre?");
-        String nombre = br.readLine();
-        if(validaDatosTeclado.validarLetras(nombre)){
-            System.out.println("Dato ok");
-        }
+        //Si el dato introducido por teclado para nombre solo son letras lo guarda en nombre si no salta excepcion
+        String nombre = validaDatosTeclado.validarLetras(br.readLine());
 
         //TODO calcular edad a partir de la fecha introducida y no preguntarla
         //TODO reducir el codigo, usar misma entrada con numero de ciclos y con el switch cambiar las preguntas especificas

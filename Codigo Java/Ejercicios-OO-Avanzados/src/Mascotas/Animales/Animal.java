@@ -1,5 +1,7 @@
 package Mascotas.Animales;
 
+import java.time.LocalDate;
+
 public class Animal{
     private String nombre;
     private int edad;

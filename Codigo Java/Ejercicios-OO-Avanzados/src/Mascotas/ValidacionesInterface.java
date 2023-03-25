@@ -2,10 +2,10 @@ package Mascotas;
 
 public interface ValidacionesInterface {
     static final String formatoFecha = "dd/MM/yyyy";
-    boolean validarFecha(String fecha);
-    boolean validarLetras(String texto);
-    boolean validarNumeros(String numeros);
+    boolean validarFecha(String fecha) throws Exception;
+    boolean validarLetras(String texto) throws Exception;
+    boolean validarNumeros(String numeros) throws Exception;
 
-    boolean validarOKorNOK(String entrada);
+    boolean validarOKorNOK(String entrada) throws Exception;
 }
 

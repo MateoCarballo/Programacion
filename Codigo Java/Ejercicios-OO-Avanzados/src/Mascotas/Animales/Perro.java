@@ -3,7 +3,7 @@ package Mascotas.Animales;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Perro extends Mascota{
+public class Perro extends Animal{
     private String raza;
     private boolean tienePulgas;
 

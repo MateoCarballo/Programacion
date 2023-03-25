@@ -7,9 +7,9 @@ import java.util.*;
 
 public class Inventario implements MetodosInventario {
     private String nombreTienda;
-    private ArrayList<Mascota> inventarioAnimales ;
+    private ArrayList<Animal> inventarioAnimales ;
 
-    public Inventario(String nombreTienda, ArrayList<Mascota> inventarioAnimales) {
+    public Inventario(String nombreTienda, ArrayList<Animal> inventarioAnimales) {
         this.nombreTienda = nombreTienda;
         this.inventarioAnimales = inventarioAnimales;
     }
@@ -22,11 +22,11 @@ public class Inventario implements MetodosInventario {
         this.nombreTienda = nombreTienda;
     }
 
-    public ArrayList<Mascota> getInventarioAnimales() {
+    public ArrayList<Animal> getInventarioAnimales() {
         return inventarioAnimales;
     }
 
-    public void setInventarioAnimales(ArrayList<Mascota> inventarioAnimales) {
+    public void setInventarioAnimales(ArrayList<Animal> inventarioAnimales) {
         this.inventarioAnimales = inventarioAnimales;
     }
 
@@ -38,7 +38,7 @@ public class Inventario implements MetodosInventario {
      */
 
     public void buscarMascota(String nombreMascota){
-        for (Mascota datos:inventarioAnimales) {
+        for (Animal datos:inventarioAnimales) {
             if (datos.getNombre().equalsIgnoreCase(nombreMascota)) {
                 datos.muestra();
                 break;
@@ -59,7 +59,7 @@ public class Inventario implements MetodosInventario {
     public boolean mostrarDatosTodosLosAnimales() {
         boolean itsEmpty=inventarioAnimales.isEmpty();
         if(!itsEmpty){
-            for (Mascota datos:inventarioAnimales) {
+            for (Animal datos:inventarioAnimales) {
                 datos.muestra();
             }
         }
@@ -68,7 +68,7 @@ public class Inventario implements MetodosInventario {
 /*
 Metodos para añadir o eliminar elementos al ArrayList y vaciarla
  */
-    public void addMascota(Mascota mascotaParaAñadir) {
+    public void addMascota(Animal mascotaParaAñadir) {
         this.inventarioAnimales.add(mascotaParaAñadir);
     }
 
@@ -85,7 +85,7 @@ Metodos para añadir o eliminar elementos al ArrayList y vaciarla
     }
 
     public void dimeSiVuela(){
-        for (Mascota dato:inventarioAnimales) {
+        for (Animal dato:inventarioAnimales) {
             if((dato instanceof Loro)|(dato instanceof Canario)){
                 ((Ave) dato).volar();
             }
@@ -98,7 +98,7 @@ Metodos para añadir o eliminar elementos al ArrayList y vaciarla
     }
 
     public void ordenarElementos(){
-       inventarioAnimales.sort(Comparator.comparing(Mascota::getNombre));
+       inventarioAnimales.sort(Comparator.comparing(Animal::getNombre));
 
 
        /*

@@ -83,9 +83,9 @@ public class MainMascotas {
                 case 8 -> {
                     //TODO pendente de introducir  validaciones
                     //Escribe el historial de consultas del todos los perros
-                   for(Mascota m:miInventario.getInventarioAnimales()){
-                       if (m instanceof Perro){
-                           ((Perro) m).printearHistorial();
+                   for(Animal a:miInventario.getInventarioAnimales()){
+                       if (a instanceof Perro){
+                           ((Perro) a).printearHistorial();
                        }
                    }
                 }
@@ -110,21 +110,21 @@ public class MainMascotas {
 
     public static void rellenarDatosParaProbar(Inventario inventory) {
 
-        Mascota perro = new Perro("nombre Perro", 10, "estado", "fechaNacimiento",
+        Animal perro = new Perro("nombre Perro", 10, "estado", "fechaNacimiento",
                 "raza", false);
-        Mascota gato = new Gato("nombre Gato", 11, "estado", "fechaNacimiento",
+        Animal gato = new Gato("nombre Gato", 11, "estado", "fechaNacimiento",
                 "color", false);
-        Mascota loro0 = new Loro("nombre Loro0", 12, "estado", "fechaNacimiento",
+        Animal loro0 = new Loro("nombre Loro0", 12, "estado", "fechaNacimiento",
                 "origen", false);
-        Mascota loro1 = new Loro("nombre Loro1", 13, "estado", "fechaNacimiento",
+        Animal loro1 = new Loro("nombre Loro1", 13, "estado", "fechaNacimiento",
                 "origen", false);
-        Mascota loro2 = new Loro("nombre Loro2", 14, "estado", "fechaNacimiento",
+        Animal loro2 = new Loro("nombre Loro2", 14, "estado", "fechaNacimiento",
                 "origen", false);
-        Mascota loro3 = new Loro("nombre Loro3", 15, "estado", "fechaNacimiento",
+        Animal loro3 = new Loro("nombre Loro3", 15, "estado", "fechaNacimiento",
                 "origen", false);
-        Mascota loro4 = new Loro("nombre Loro4", 15, "estado", "fechaNacimiento",
+        Animal loro4 = new Loro("nombre Loro4", 15, "estado", "fechaNacimiento",
                 "origen", false);
-        Mascota canario = new Canario("nombre Canario", 13, "estado", "fechaNacimiento",
+        Animal canario = new Canario("nombre Canario", 13, "estado", "fechaNacimiento",
                 "color canario", false);
 
         inventory.addMascota(perro);
@@ -167,9 +167,9 @@ public class MainMascotas {
         }
 
     }
-    public static void printearClasesNombres(ArrayList <Mascota> misMascotas){
+    public static void printearClasesNombres(ArrayList <Animal> misAnimales){
         int contador0 = 0;
-        for (Mascota datos : misMascotas) {
+        for (Animal datos : misAnimales) {
             contador0 += 1;
             System.out.println((contador0 + "->" + "Tipo de animal  " + datos.getClass().getSimpleName() + "||" +
                     " Nombre del animal-> " + datos.getNombre() + "\n"));

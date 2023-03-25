@@ -1,6 +1,6 @@
 package Mascotas.Animales;
 
-public abstract class Mascota extends Animal{
+public abstract class Mascota{
     private String nombre;
     private int edad;
     private String estado;

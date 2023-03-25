@@ -141,16 +141,18 @@ public class MainMascotas {
     }
 
     public static void añadirConsultaHistorial(Inventario miInventario) throws IOException{
-
+        Validaciones validaDatosTeclado= new Validaciones();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Nombre del perro?");
         String nombrePerro= br.readLine();
+
         int indiceMascotaBuscada=miInventario.buscarMascotaPerro(nombrePerro);
         if (indiceMascotaBuscada>=0){
             System.out.println("Mascota encontrada");
             miInventario.buscarMascota(nombrePerro);
             System.out.println("Lugar de consulta?");
             String lugarConsulta=br.readLine();
+
             System.out.println("Motivo de la consulta");
             String motivoConsulta=br.readLine();
             System.out.println("Dejar consulta abierta?(La mascota requiere ingreso)(Y/N)");

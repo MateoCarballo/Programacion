@@ -29,7 +29,7 @@ public class MainMascotas {
                     6.Vaciar inventario.
                     7.Añadir revision a perro.
                     8.Ver historiales de todos los perros.
-                    
+                    11.Alta Perro(Añadir Fecha Salida)
                     9.Salir.""");
 
             switch (Integer.parseInt(br.readLine())) {
@@ -91,8 +91,12 @@ public class MainMascotas {
                 }
                 case 11->{
                     System.out.println("Que perro va a dar de alta?");
-                    miInventario.
-                    String nombrePerro=br.readLine()
+                    int indiceMascota=miInventario.buscarMascotaPerro(br.readLine());
+                    if(miInventario.comprobarFechaAltaVacia(indiceMascota)){
+                        System.out.println("Perro dado de alta");
+                    }else{
+                        System.out.println("No se ha podido dar de alta revisa los datos introducidos");
+                    }
                 }
 
                 case 9 -> continuar = false;

@@ -1,6 +1,8 @@
 package Mascotas;
 
 import Mascotas.Animales.*;
+
+import java.time.LocalDate;
 import java.util.*;
 
 public class Inventario implements MetodosInventario {
@@ -111,5 +113,23 @@ Metodos para añadir o eliminar elementos al ArrayList y vaciarla
         if (inventarioAnimales.get(indicePerro) instanceof Perro){
             ((Perro) inventarioAnimales.get(indicePerro)).añadirConsultaHisorial(idConsulta,lugarConsulta,motivoConsulta,consultaAbierta);
         }
+    }
+
+    public boolean comprobarFechaAltaVacia(int indicePerro){
+        boolean fechaAltaOK=false;
+        ArrayList<Consulta> historialAux = ((Perro) inventarioAnimales.get(indicePerro)).getHistorial();
+
+        for (int i = 0; i <historialAux.size() ; i++) {
+            if(historialAux.get(i).getFechadeAlta()==null){
+                fechaAltaOK=altaPerro(i,((Perro) inventarioAnimales.get(indicePerro)).getHistorial());
+            }
+        }
+return fechaAltaOK;
+    }
+
+    public boolean altaPerro(int indiceConsulta,ArrayList<Consulta> historialPerro){
+        historialPerro.get(indiceConsulta).setFechadeAlta(LocalDate.now());
+        return true;
+
     }
 }

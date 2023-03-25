@@ -15,7 +15,7 @@ public class Perro extends Mascota{
         this.raza = raza;
         this.tienePulgas=tienePulgas;
         //La primea vez metemosun dato
-        this.historial.add(new Consulta("Lugar de Consulta","Tipo de Consulta", LocalDate.now()));
+        this.historial.add(new Consulta(0,"Lugar de Consulta","Tipo de Consulta", LocalDate.now()));
     }
 
     public String getRaza() {
@@ -32,6 +32,15 @@ public class Perro extends Mascota{
 
     public void setPulgas(boolean tienePulgas) {
         this.tienePulgas = tienePulgas;
+    }
+
+
+    public ArrayList<Consulta> getHistorial() {
+        return historial;
+    }
+
+    public void setHistorial(ArrayList<Consulta> historial) {
+        this.historial = historial;
     }
 
     @Override

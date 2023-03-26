@@ -33,6 +33,9 @@ public class MainEmpleado {
         ArrayList<Empleado> listadoEmpleadosActivo = new ArrayList<>();
         ArrayList<Empleado> listadoEmpleadosDadosDeBaja = new ArrayList<>();
 
+        listadoEmpleadosActivo.add(new EmpFijo("12345678F","Empleado Fijo","01/01/1990",'H',15000,10,4));
+        listadoEmpleadosActivo.add(new EmpTemporal("12345678F","Empleado Fijo","01/01/1990",'H',"01/01/2018","01/06/2018",50.50));
+
         System.out.println("""
                 Menú:     
                 1.Alta nuevo empleado. 
@@ -170,6 +173,7 @@ public class MainEmpleado {
                         numeroSS = br.readLine();
                     } while (!validateWregex(numeroSS, "^[0-9]{8}[a-zA-Z]$") && (!buscarEmpleado(listadoEmpleadosActivo, numeroSS,0).equalsIgnoreCase("Nombre no encontrado")));
                     int index=buscarEmpleado(listadoEmpleadosActivo,numeroSS);
+                    System.out.println("Empleado de tipo "+ listadoEmpleadosActivo.getClass().getSimpleName());
                     System.out.println("Quieres modificar a "+listadoEmpleadosActivo.get(index).getNombre()+"? (Y/N)");
                     if(br.readLine().equalsIgnoreCase("Y")){
                         if(listadoEmpleadosActivo.get(index) instanceof EmpTemporal){

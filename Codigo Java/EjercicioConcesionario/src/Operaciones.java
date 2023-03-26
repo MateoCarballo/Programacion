@@ -3,7 +3,7 @@ public class Operaciones {
 
     }
 
-    public static void ordenarPrecioBurbuja(Coche miConcesionario[]){
+    public static void ordenarPrecioBurbuja(Coche[] miConcesionario){
         Coche aux = new Coche();
         int cuentaintercambios=0;
         //Usamos un bucle anidado, saldra cuando este ordenado el array
@@ -27,7 +27,7 @@ public class Operaciones {
         }
     }
 
-    public static void ordenarMarcasBurbuja(Coche miConcesionario[]){
+    public static void ordenarMarcasBurbuja(Coche[] miConcesionario){
         Coche aux = new Coche();
         boolean ordenado=false;
         int cuentaIntercambios=0;
@@ -52,7 +52,7 @@ public class Operaciones {
         }
 
     }
-    public static void ordenarModeloBurbuja(Coche miConcesionario[]){
+    public static void ordenarModeloBurbuja(Coche[] miConcesionario){
         Coche aux = new Coche();
         boolean ordenado=false;
         int cuentaIntercambios=0;

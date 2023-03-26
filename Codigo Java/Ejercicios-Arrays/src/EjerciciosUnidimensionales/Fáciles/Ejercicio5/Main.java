@@ -13,7 +13,7 @@ public class Main {
 
     }
 
-    public static void  llenarMatrizEnteros(int matriz[])throws IOException{
+    public static void  llenarMatrizEnteros(int[] matriz)throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         for (int i = 0; i < matriz.length; i++) {
             System.out.println("Introduce el numero de la posicion "+i);

@@ -1,9 +1,9 @@
 package Astros;
 
 public class Satelite extends Astro{
-    private float distanciaPlaneta;
-    private float orbitaPlanetaria;
-    private String planetaContenedor;
+    private final float distanciaPlaneta;
+    private final float orbitaPlanetaria;
+    private final String planetaContenedor;
 
     public float getDistanciaPlaneta() {
         return distanciaPlaneta;

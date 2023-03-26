@@ -60,10 +60,7 @@ public class ValidarNombres {
 
 
     public static boolean validarNombre(String nombre){
-        boolean respuesta=false;
-        if(nombre.matches("^([A-Z][a-z]+[ ]?){1,2}$")&&nombre.length()<25){
-            respuesta =true;
-        }
+        boolean respuesta= nombre.matches("^([A-Z][a-z]+[ ]?){1,2}$") && nombre.length() < 25;
         return respuesta;
     }
 

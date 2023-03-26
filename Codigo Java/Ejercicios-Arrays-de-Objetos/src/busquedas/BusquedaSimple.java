@@ -1,7 +1,7 @@
 package arrays.busquedas;
 
 public class BusquedaSimple {
-    int busquedaSimple(int vector[], int n, int dato) {
+    int busquedaSimple(int[] vector, int n, int dato) {
 
         int i;
 

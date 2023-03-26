@@ -115,7 +115,7 @@ public final class utilidadesArrays{
             System.out.print("C"+i+" ");
 
         }
-        System.out.println("");
+        System.out.println();
         for (int i = 0; i < miMatriz.length; i++) {
             System.out.print("Fila->" + i + "  ");
 
@@ -134,7 +134,7 @@ public final class utilidadesArrays{
                 System.out.print(miMatriz[i][j]);
             }
             System.out.print("|");
-            System.out.println("");
+            System.out.println();
         }
 
     }
@@ -143,7 +143,7 @@ public final class utilidadesArrays{
 
     public static void tresEnRaya(String[][] miMatriz) {
         System.out.print("     0   1   2 ");
-        System.out.println("");
+        System.out.println();
         for (int i = 0; i < miMatriz.length; i++) {
             System.out.print("" + i + "  ");
 
@@ -152,7 +152,7 @@ public final class utilidadesArrays{
                 System.out.print(miMatriz[i][j]);
             }
             System.out.print("|");
-            System.out.println("");
+            System.out.println();
         }
 
     }

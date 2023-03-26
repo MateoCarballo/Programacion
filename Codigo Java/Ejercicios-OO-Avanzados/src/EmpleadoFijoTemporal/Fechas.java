@@ -34,10 +34,10 @@ public class Fechas {
         //Cálculo de diferencia (en milisegundos y días) 
         //entre 2 fechas introducidas por teclado.
 
-        System.out.printf("¿Desde que fecha?");
+        System.out.print("¿Desde que fecha?");
         Date desde = pedirFecha();
 
-        System.out.printf("¿Hasta que fecha?");
+        System.out.print("¿Hasta que fecha?");
         Date hasta = pedirFecha();
         
         difFechas(desde,hasta);
@@ -60,7 +60,7 @@ public class Fechas {
         do {
                 error=false;
                 
-                        System.out.printf("Fecha(dd/MM/yyyy): ");
+                        System.out.print("Fecha(dd/MM/yyyy): ");
             try {
                 fecha = dateFormat.parse(LEE.readLine());
             } catch (IOException ex) {
@@ -86,7 +86,7 @@ public class Fechas {
        
       // String fecha1 = "12/04/2020";  
        
-        System.out.printf("¿Desde que fecha el préstamo?");
+        System.out.print("¿Desde que fecha el préstamo?");
         Date fecha1 = pedirFecha();
  
   //Es importante que Dentro de las comillas los meses estén en mayúscula y
@@ -122,10 +122,10 @@ public class Fechas {
     
     public static void en8() throws ParseException{
         //Mismos ejercicios que en el caso anterior
-        System.out.printf("¿Desde que fecha?");
+        System.out.print("¿Desde que fecha?");
         LocalDate desde = pedirFechaEn8();
 
-        System.out.printf("¿Hasta que fecha?");
+        System.out.print("¿Hasta que fecha?");
         LocalDate hasta = pedirFechaEn8();
     
         //Period DesdeHata = desde.until(hasta);
@@ -139,7 +139,7 @@ public class Fechas {
         );
         
         //Suma y resta de periodos de tiempo
-        System.out.printf("¿Desde que fecha el préstamo?");
+        System.out.print("¿Desde que fecha el préstamo?");
         LocalDate fechaDsd = pedirFechaEn8();
         
         System.out.println("La fecha dentro de 15 días: " + fechaDsd.plusDays(15) );
@@ -155,7 +155,7 @@ public class Fechas {
         do {
                 error=false;
                 
-                        System.out.printf("Fecha(dd/MM/yyyy): ");
+                        System.out.print("Fecha(dd/MM/yyyy): ");
             try {
                 
                 fecha = LocalDate.parse(LEE.readLine(), DateTimeFormatter.ofPattern("d/M/yyyy"));

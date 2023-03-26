@@ -44,7 +44,7 @@ public class Coche {
         return aleatorio;
     }
     public static double numAleatorio(double limInferior, double limSuperior){
-        double aleatorio = (double)(Math.random()*(limSuperior-limInferior+1)+limInferior);
+        double aleatorio = Math.random()*(limSuperior-limInferior+1)+limInferior;
         return aleatorio;
     }
     public static boolean booleanoAleatorio(){

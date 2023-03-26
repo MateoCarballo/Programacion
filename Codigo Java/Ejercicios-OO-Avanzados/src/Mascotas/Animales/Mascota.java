@@ -48,11 +48,13 @@ public abstract class Mascota{
     public abstract void muestra();
     public  void hablar(){
 
-    };
+    }
+
     public void cumpleaños(){
 
-    };
+    }
+
     public void morir(){
 
-    };
+    }
 }

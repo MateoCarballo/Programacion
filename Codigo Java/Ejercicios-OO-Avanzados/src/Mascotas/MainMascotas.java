@@ -144,27 +144,18 @@ public class MainMascotas {
         Validaciones validaDatosTeclado= new Validaciones();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Nombre del perro?");
-        String nombrePerro;
-        nombrePerro=validaDatosTeclado.validarLetras(br.readLine());
-
+        String nombrePerro=br.readLine();
         int indiceMascotaBuscada=miInventario.buscarMascotaPerro(nombrePerro);
         if (indiceMascotaBuscada>=0){
             System.out.println("Mascota encontrada");
             miInventario.buscarMascota(nombrePerro);
             System.out.println("Lugar de consulta?");
             String lugarConsulta=br.readLine();
-            lugarConsulta= validaDatosTeclado.validarLetras(br.readLine());
             System.out.println("Motivo de la consulta");
             String motivoConsulta=br.readLine();
-            motivoConsulta= validaDatosTeclado.validarLetras(br.readLine());
             System.out.println("Dejar consulta abierta?(La mascota requiere ingreso)(Y/N)");
-            if (br.readLine().equalsIgnoreCase("Y")){
-                miInventario.añadirConsultaPerro(idconsulta,indiceMascotaBuscada,lugarConsulta,
-                        motivoConsulta,true);
-            }else{
-                miInventario.añadirConsultaPerro(idconsulta,indiceMascotaBuscada,lugarConsulta,
-                        motivoConsulta,false);
-            }
+            miInventario.añadirConsultaPerro(idconsulta,indiceMascotaBuscada,lugarConsulta,
+                    motivoConsulta, br.readLine().equalsIgnoreCase("Y"));
             idconsulta+=1;
         }else{
             System.out.println("Mascota no encontrada revise nombre introducido");
@@ -184,31 +175,21 @@ public class MainMascotas {
 
     public static void preguntasComunesAnimales(int tipodeInsercion,Inventario inventory) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        Validaciones validaDatosTeclado= new Validaciones();
         System.out.println("Nombre?");
         //Si el dato introducido por teclado para nombre solo son letras lo guarda en nombre si no salta excepcion
-        String nombre = validaDatosTeclado.validarLetras(br.readLine());
+        String nombre = (br.readLine());
 
         //TODO calcular edad a partir de la fecha introducida y no preguntarla
         //TODO reducir el codigo, usar misma entrada con numero de ciclos y con el switch cambiar las preguntas especificas
         System.out.println("Edad?");
         String edadS = br.readLine();
         int edad=0;
-        if(validaDatosTeclado.validarNumeros(edadS)){
-            System.out.println("Dato ok");
-        }
         edad=Integer.parseInt(edadS);
         System.out.println("Estado?(OK/NOK)");
         String estado = br.readLine();
-        if(validaDatosTeclado.validarOKorNOK(estado)){
-            System.out.println("Dato ok");
-        }
-        //TODO cambar String a formato DATE
+        //TODO cambiar String a formato DATE
         System.out.println("Fecha de nacimiento?");
         String fechaNacimiento = br.readLine();
-        if(validaDatosTeclado.validarFecha(fechaNacimiento)){
-            System.out.println("Formato fecha correcto");
-        }
 
         switch (tipodeInsercion){
             case 1-> {
@@ -216,6 +197,7 @@ public class MainMascotas {
                 String razaPerro = br.readLine();
                 System.out.println("Tiene pulgas?(Y/N)");
                 boolean pulgas = br.readLine().equalsIgnoreCase("Y");
+                comprobarValidaciones(nombre,edad,estado,fechaNacimiento,razaPerro);
                 inventory.addMascota(new Perro(nombre, edad, estado,
                         fechaNacimiento, razaPerro, pulgas));
 
@@ -244,6 +226,17 @@ public class MainMascotas {
             }
             }
         }
+
+    private static boolean comprobarValidaciones(String nombre, int edad, String estado,
+                                              String fechaNacimiento, String razaPerro) throws Exception {
+        boolean datosOK=true;
+        Validaciones validaDatosTeclado= new Validaciones();
+        if (!validaDatosTeclado.validarLetras(nombre) || !validaDatosTeclado.validarLetras(estado) ||
+                !validaDatosTeclado.validarLetras(razaPerro) || !validaDatosTeclado.validarFecha(fechaNacimiento)){
+            datosOK = false;
+        }
+        return datosOK;
     }
+}
 
 

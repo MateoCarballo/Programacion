@@ -12,10 +12,10 @@ public class OrdenacionQuickSort {
     public static void main(String[] args) {
 
         final int TAMANIO=10;
-        int lista[]=new int [TAMANIO];
+        int[] lista =new int [TAMANIO];
         rellenarArray(lista);
 
-        String lista_String[]={"americano", "Zagal", "pedro", "Tocado", "coz"};
+        String[] lista_String ={"americano", "Zagal", "pedro", "Tocado", "coz"};
 
         System.out.println("Array de números sin ordenar:");
         imprimirArray(lista);
@@ -37,19 +37,19 @@ public class OrdenacionQuickSort {
 
     }
 
-    public static void imprimirArray (int lista[]){
+    public static void imprimirArray (int[] lista){
         for(int i=0;i<lista.length;i++){
             System.out.println(lista[i]);
         }
     }
 
-    public static void imprimirArray (String lista[]){
+    public static void imprimirArray (String[] lista){
         for(int i=0;i<lista.length;i++){
             System.out.println(lista[i]);
         }
     }
 
-    public static void rellenarArray (int lista[]){
+    public static void rellenarArray (int[] lista){
         for(int i=0;i<lista.length;i++){
             lista[i]=numeroAleatorio();
         }
@@ -59,7 +59,7 @@ public class OrdenacionQuickSort {
         return ((int)Math.floor(Math.random()*1000));
     }
 
-    public static void quicksort (int lista1[], int izq, int der){
+    public static void quicksort (int[] lista1, int izq, int der){
         int i=izq;
         int j=der;
         int pivote=lista1[(i+j)/2];
@@ -86,7 +86,7 @@ public class OrdenacionQuickSort {
         }
     }
 
-    public static void quicksortP (String lista1[], int izq, int der){
+    public static void quicksortP (String[] lista1, int izq, int der){
         int i=izq;
         int j=der;
         int pivote=(i+j)/2;

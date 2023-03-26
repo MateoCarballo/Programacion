@@ -2,11 +2,11 @@ package Astros;
 
 public abstract class Astro {
 
-    private float radioEcuatorial;
-    private boolean rotacionSobreEje;
-    private float masa;
-    private float tempMedia;
-    private float gavedad;
+    private final float radioEcuatorial;
+    private final boolean rotacionSobreEje;
+    private final float masa;
+    private final float tempMedia;
+    private final float gavedad;
 
     public Astro(float radioEcuatorial, boolean rotacionSobreEje, float masa, float tempMedia, float gavedad) {
         this.radioEcuatorial = radioEcuatorial;
@@ -42,5 +42,5 @@ public abstract class Astro {
         System.out.println("Masa                        ->"+getMasa());
         System.out.println("Temperatura media           ->"+getTempMedia());
         System.out.println("Gravedad                    ->"+getGavedad());
-    };
+    }
 }

@@ -75,10 +75,7 @@ public class Main {
     public static boolean comprobarFinJuego(Ahorcado miAhorcado,char[]palabraVisibleaJugador,char[]palabraSecretaCaracteres){
         boolean finDelJuego=false;
         for (int i = 0; i < miAhorcado.longitudPalabraElegida; i++) {
-            finDelJuego=false;
-            if (palabraVisibleaJugador[i]==palabraSecretaCaracteres[i]){
-                finDelJuego=true;
-            }
+            finDelJuego= palabraVisibleaJugador[i] == palabraSecretaCaracteres[i];
         }
         return finDelJuego;
     }

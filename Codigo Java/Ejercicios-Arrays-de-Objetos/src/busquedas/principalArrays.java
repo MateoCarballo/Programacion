@@ -9,7 +9,7 @@ public class principalArrays {
 
         BusquedaBinaria bb = new BusquedaBinaria();
 
-        int vector[] =  {1,2,35,100,45};
+        int[] vector =  {1,2,35,100,45};
 
         List< Integer > sortedList = Arrays.asList(1,2,35,100,45);
 

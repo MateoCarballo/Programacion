@@ -27,34 +27,34 @@ public class Tabla {
     }
     
     public static void cabecera (String [] titulos, int n1) {
-        System.out.printf(" ");
+        System.out.print(" ");
         for (String titulo : titulos) {
             System.out.printf("\033[34m%s%-"+ n1 + "s%1$s", "|", titulo);
         }
-        System.out.println("");
+        System.out.println();
     }
     
     public static void contenido (String [] contenido, int n1) {
-        System.out.printf(" ");
+        System.out.print(" ");
         for (String conten : contenido) {
             System.out.printf("\033[35m%s%-" + n1 + "s%1$s", "|", conten);
         }
-        System.out.println("");
+        System.out.println();
     }
     
     public static void separacion (int n1) {
-        System.out.printf(" ");
+        System.out.print(" ");
         for (int i = 0; i < n1; i++) {
             System.out.printf("%s", "─");
         }
-        System.out.println("");
+        System.out.println();
     }
     
     public static void separadorEnTabla (String nombre, int n1, int n2) {
-        System.out.printf(" ");
+        System.out.print(" ");
         for (int i = 0; i < n1; i++) {
             if (i == 0)
-                System.out.printf("|");
+                System.out.print("|");
             
             System.out.printf("%s", "-"); 
            
@@ -62,9 +62,9 @@ public class Tabla {
                 System.out.printf(" %s ", nombre);
             
             if (i == n1 - 1)
-                System.out.printf("|");
+                System.out.print("|");
         }
-        System.out.println("");
+        System.out.println();
     }
     
     public static void visuTabla (/*ObjectContainer baseDatos*/ ArrayList resultado,
@@ -79,7 +79,7 @@ public class Tabla {
         Iterator <ArrayList> it=resultado.iterator();
         
         while (it.hasNext()) {
-            ArrayList fila = (ArrayList) it.next();
+            ArrayList fila = it.next();
             System.out.println(fila);
         }
 

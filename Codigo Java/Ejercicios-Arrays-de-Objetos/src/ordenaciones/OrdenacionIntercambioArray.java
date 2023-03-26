@@ -15,10 +15,10 @@ public class OrdenacionIntercambioArray {
 
     public static void main(String[] args) {
         final int TAMANIO=10;
-        int lista[]=new int [TAMANIO];
+        int[] lista =new int [TAMANIO];
         rellenarArray(lista);
 
-        String lista_String[]={"americano", "Zagal", "pedro", "Tocado", "coz"};
+        String[] lista_String ={"americano", "Zagal", "pedro", "Tocado", "coz"};
 
         System.out.println("Array de números sin ordenar:");
         imprimirArray(lista);
@@ -39,19 +39,19 @@ public class OrdenacionIntercambioArray {
         imprimirArray(lista_String);
     }
 
-    public static void imprimirArray (int lista[]){
+    public static void imprimirArray (int[] lista){
         for(int i=0;i<lista.length;i++){
             System.out.println(lista[i]);
         }
     }
 
-    public static void imprimirArray (String lista[]){
+    public static void imprimirArray (String[] lista){
         for(int i=0;i<lista.length;i++){
             System.out.println(lista[i]);
         }
     }
 
-    public static void rellenarArray (int lista[]){
+    public static void rellenarArray (int[] lista){
         for(int i=0;i<lista.length;i++){
             lista[i]=numeroAleatorio();
         }
@@ -76,7 +76,7 @@ public class OrdenacionIntercambioArray {
         }
     }
 
-    public static void intercambioPalabras(String lista[]){
+    public static void intercambioPalabras(String[] lista){
 
         //Usamos un bucle anidado
         for(int i=0;i<(lista.length-1);i++){

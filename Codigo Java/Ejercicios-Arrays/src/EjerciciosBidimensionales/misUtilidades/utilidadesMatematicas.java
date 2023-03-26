@@ -20,7 +20,7 @@ public class utilidadesMatematicas {
     }
 
     public static double numAleatorioDouble(int limInferior, int limSuperior){
-        Double aleatorio = (Double)(Math.random()*(limSuperior-limInferior+1)+limInferior);
+        Double aleatorio = Math.random()*(limSuperior-limInferior+1)+limInferior;
         return aleatorio;
     }
 

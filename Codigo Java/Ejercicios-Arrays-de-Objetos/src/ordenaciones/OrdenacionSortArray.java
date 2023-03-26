@@ -6,10 +6,10 @@ public class OrdenacionSortArray {
     public static void main(String[] args) {
 
         final int TAMANIO=10;
-        int lista[]=new int [TAMANIO];
+        int[] lista =new int [TAMANIO];
         rellenarArray(lista);
 
-        String lista_String[]={"americano", "Zagal", "pedro", "Tocado", "coz"};
+        String[] lista_String ={"americano", "Zagal", "pedro", "Tocado", "coz"};
 
         System.out.println("Array de números sin ordenar:");
         imprimirArray(lista);
@@ -36,19 +36,19 @@ public class OrdenacionSortArray {
         parallelSortTry3();
     }
 
-    public static void imprimirArray (int lista[]){
+    public static void imprimirArray (int[] lista){
         for(int i=0;i<lista.length;i++){
             System.out.println(lista[i]);
         }
     }
 
-    public static void imprimirArray (String lista[]){
+    public static void imprimirArray (String[] lista){
         for(int i=0;i<lista.length;i++){
             System.out.println(lista[i]);
         }
     }
 
-    public static void rellenarArray (int lista[]){
+    public static void rellenarArray (int[] lista){
         for(int i=0;i<lista.length;i++){
             lista[i]=numeroAleatorio();
         }
@@ -85,7 +85,7 @@ public class OrdenacionSortArray {
     * */
 
     public static void parallelSortTry2(){
-        System.out.println("");
+        System.out.println();
         System.out.println("parallelSort() con 3 argumentos");
         int[] arr = new int[]{12,3,5,21,4,85,6,9,2,1};
         for (int i : arr) {
@@ -105,7 +105,7 @@ public class OrdenacionSortArray {
      */
 
     public static void parallelSortTry3(){
-        System.out.println("");
+        System.out.println();
         System.out.println("parallelSort() con stream");
         int[] arr = new int[]{12,3,5,21,4,85,6,9,2,1};
         for (int i : arr) {

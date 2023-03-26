@@ -2,9 +2,9 @@ package Astros;
 
 public class Planeta extends Astro{
 
-    private float distanciaAlSol;
-    private boolean orbitaElSol;
-    private boolean tieneSatelites;
+    private final float distanciaAlSol;
+    private final boolean orbitaElSol;
+    private final boolean tieneSatelites;
 
     public float getDistanciaAlSol() {
         return distanciaAlSol;

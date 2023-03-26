@@ -1,7 +1,5 @@
 package Mascotas.Animales;
 
-import java.time.LocalDate;
-
 public class Animal{
     private String nombre;
     private int edad;
@@ -51,15 +49,18 @@ public class Animal{
 
     public void muestra(){
 
-    };
+    }
+
     public  void hablar(){
 
-    };
+    }
+
     public void cumpleaños(){
 
-    };
+    }
+
     public void morir(){
 
-    };
+    }
 }
 

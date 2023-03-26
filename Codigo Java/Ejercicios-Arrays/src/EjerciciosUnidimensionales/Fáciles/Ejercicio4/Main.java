@@ -12,7 +12,7 @@ public class Main {
         System.out.println("El suma de los numeros mayores de cero es-> "+acumuladoMatriz(matrizEnteros,false));
     }
 
-    public static void  llenarMatrizEnteros(int matriz[])throws IOException{
+    public static void  llenarMatrizEnteros(int[] matriz)throws IOException{
 
         int acumuladoNeg=0;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

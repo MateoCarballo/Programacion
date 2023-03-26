@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        float matrizReales[]=new float[10];
+        float[] matrizReales =new float[10];
         for (int i = 0; i < matrizReales.length; i++) {
             System.out.println("Introduce el numero de la posicion "+i);
             matrizReales[i]=Float.parseFloat(br.readLine());

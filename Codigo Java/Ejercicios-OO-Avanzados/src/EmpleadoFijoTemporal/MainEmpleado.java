@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 public class MainEmpleado {
 
@@ -33,8 +34,12 @@ public class MainEmpleado {
         ArrayList<Empleado> listadoEmpleadosActivo = new ArrayList<>();
         ArrayList<Empleado> listadoEmpleadosDadosDeBaja = new ArrayList<>();
 
+        rellenarEmpleados(listadoEmpleadosActivo);
+
         listadoEmpleadosActivo.add(new EmpFijo("12345678F","Empleado Fijo","01/01/1990",'H',15000,10,4));
         listadoEmpleadosActivo.add(new EmpTemporal("12345678F","Empleado Fijo","01/01/1990",'H',"01/01/2018","01/06/2018",50.50));
+        Visualizar v = new Visualizar();
+        v.visualiza(listadoEmpleadosActivo);
 
         System.out.println("""
                 Menú:     
@@ -211,7 +216,7 @@ public class MainEmpleado {
     }
 
     public static  String buscarEmpleado(ArrayList<Empleado> listadoEmpleadosActivo,String nss,int z){
-        ordenarPorAtributo(listadoEmpleadosActivo,nss);
+        OrdenacionesBusquedas.ordenarPorAtributo(listadoEmpleadosActivo,nss);
         for(Empleado e:listadoEmpleadosActivo){
             if ((e instanceof EmpTemporal)&&(e.getNss().equalsIgnoreCase(nss))){
                 return e.getNombre();
@@ -221,7 +226,7 @@ public class MainEmpleado {
     }
 
     public static int buscarEmpleado(ArrayList<Empleado> listadoEmpleadosActivo,String nss){
-        ordenarPorAtributo(listadoEmpleadosActivo,nss);
+        OrdenacionesBusquedas.ordenarPorAtributo(listadoEmpleadosActivo,nss);
         int salida=-1;
         for (int i = 0; i < listadoEmpleadosActivo.size(); i++) {
             if(listadoEmpleadosActivo.get(i).getNss().equalsIgnoreCase(nss)){
@@ -238,7 +243,7 @@ public class MainEmpleado {
         listadoEmpleadosActivo.remove(indice);
     }
     public static void addSale(ArrayList<Empleado> listadoEmpleadosActivo,String nss){
-        ordenarPorAtributo(listadoEmpleadosActivo,nss);
+        OrdenacionesBusquedas.ordenarPorAtributo(listadoEmpleadosActivo,nss);
         for(Empleado e:listadoEmpleadosActivo){
             if ((e instanceof EmpTemporal)&&(e.getNss().equalsIgnoreCase(nss))){
                 ((EmpTemporal) e).añadirVenta();
@@ -263,30 +268,9 @@ public class MainEmpleado {
         return c;
     }
 
-    public static void ordenarPorAtributo(ArrayList<Empleado> lista, String atributo) {
-        for (int i = 0; i < lista.size() - 1; i++) {
-            for (int j = i + 1; j < lista.size(); j++) {
-                Empleado p1 = lista.get(i);
-                Empleado p2 = lista.get(j);
 
-                if (atributo.equalsIgnoreCase("nss")) {
-                    if (p1.getNombre().compareTo(p2.getNombre()) > 0) {
-                        Collections.swap(lista, i, j);
-                    }
-                }
-                if (atributo.equalsIgnoreCase("nombre")) {
-                    if (p1.getNombre().compareTo(p2.getNombre()) > 0) {
-                        Collections.swap(lista, i, j);
-                    }
-                }
-                if (atributo.equalsIgnoreCase("fechaDeNacimiento")) {
-                    if (p1.getNombre().compareTo(p2.getNombre()) > 0) {
-                        Collections.swap(lista, i, j);
-                    }
-                }
-            }
-        }
-    }
+
+
     /*
      public boolean validateWregex(String entradaTeclado, String regex) {
 
@@ -308,5 +292,48 @@ public static boolean validateNSS(String s){
         return s.matches("^[0-9]{8}[a-zA-Z]$");
     }
      */
+    public static void rellenarEmpleados(ArrayList<Empleado> listaEmp){
+        for (int i = 0; i < 5; i++) {
+            listaEmp.add(new EmpTemporal(Enum.nss[genNAle(0,19)],
+                                        Enum.nombresHombres[genNAle(0,9)],
+                                        Enum.fechasNacimiento[genNAle(0,19)],
+                                        Enum.sexos[genNAle(0,1)],
+                                        Enum.fechasInicio[genNAle(0,4)],
+                                        Enum.fechasFin[genNAle(0, 4)],
+                                        Enum.preciosDia[genNAle(0,9)]));
+        }
+        for (int i = 0; i < 5; i++) {
+            listaEmp.add(new EmpTemporal(Enum.nss[genNAle(0,19)],
+                    Enum.nombresMujeres[genNAle(0,9)],
+                    Enum.fechasNacimiento[genNAle(0,19)],
+                    Enum.sexos[genNAle(0,1)],
+                    Enum.fechasInicio[genNAle(0,4)],
+                    Enum.fechasFin[genNAle(0,4)],
+                    Enum.preciosDia[genNAle(0,9)]));
+        }
 
+        for (int i = 0; i < 5; i++) {
+            listaEmp.add(new EmpFijo(Enum.nss[genNAle(0,19)],
+                    Enum.nombresHombres[genNAle(0,9)],
+                    Enum.fechasNacimiento[genNAle(0,19)],
+                    Enum.sexos[genNAle(0,1)],
+                    Enum.salarios[genNAle(0,9)],
+                    Enum.irpf[genNAle(0,9)],
+                    genNAle(0,9)));
+        }
+        for (int i = 0; i < 5; i++) {
+            listaEmp.add(new EmpFijo(Enum.nss[genNAle(0,19)],
+                    Enum.nombresMujeres[genNAle(0,9)],
+                    Enum.fechasNacimiento[genNAle(0,19)],
+                    Enum.sexos[genNAle(0,1)],
+                    Enum.salarios[genNAle(0,9)],
+                    Enum.irpf[genNAle(0,9)],
+                    genNAle(0,9)));
+        }
+    }
+
+    public static int genNAle(int desde, int hasta) {
+        Random random = new Random();
+        return random.nextInt(hasta - desde + 1) + desde;
+    }
 }

@@ -162,8 +162,30 @@ public class MainEmpleado {
                         }
                         }
                 }
-                //TODO pendiente punto 4 y 5
-                case 4->{}
+                //TODO pendiente punto 5
+                case 4->{
+                    System.out.println("Modificaciones");
+                    do {
+                        System.out.println("Introduce el numero de seguridad social");
+                        numeroSS = br.readLine();
+                    } while (!validateWregex(numeroSS, "^[0-9]{8}[a-zA-Z]$") && (!buscarEmpleado(listadoEmpleadosActivo, numeroSS,0).equalsIgnoreCase("Nombre no encontrado")));
+                    int index=buscarEmpleado(listadoEmpleadosActivo,numeroSS);
+                    System.out.println("Quieres modificar a "+listadoEmpleadosActivo.get(index).getNombre()+"? (Y/N)");
+                    if(br.readLine().equalsIgnoreCase("Y")){
+                        if(listadoEmpleadosActivo.get(index) instanceof EmpTemporal){
+                            System.out.println("Precio dia?");
+                            precioDia=Double.parseDouble(br.readLine());
+                            ((EmpTemporal) listadoEmpleadosActivo.get(index)).setPrecioDia(precioDia);
+                        } else if(listadoEmpleadosActivo.get(index) instanceof EmpFijo) {
+                            System.out.println("Salario base");
+                            salario=Integer.parseInt(br.readLine());
+                            System.out.println("Trienios");
+                            trienios=Integer.parseInt(br.readLine());
+                            ((EmpFijo)listadoEmpleadosActivo.get(index)).setSalario(salario);
+                            ((EmpFijo)listadoEmpleadosActivo.get(index)).setTrienios(trienios);
+                        }
+                    }
+                }
             }
 
         } while (continuar);

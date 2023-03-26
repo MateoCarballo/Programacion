@@ -9,7 +9,7 @@ import java.util.Collections;
 public class MainEmpleado {
 
     public static void main(String[] args)throws IOException {
-
+        boolean continuar =false;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String tipodeContrato;
         // Para guardar los atrib comunes
@@ -30,102 +30,141 @@ public class MainEmpleado {
 
         int controlFlujoMenu;
 
-        ArrayList<Empleado> listadoEmpleadosActivo=         new ArrayList<>();
-        ArrayList<Empleado> listadoEmpleadosDadosDeBaja=    new ArrayList<>();
+        ArrayList<Empleado> listadoEmpleadosActivo = new ArrayList<>();
+        ArrayList<Empleado> listadoEmpleadosDadosDeBaja = new ArrayList<>();
 
         System.out.println("""
                 Menú:     
                 1.Alta nuevo empleado. 
                 2.Añadir venta(Solo a empleados temporales). 
-                3.Bajas.          
+                3.Bajas.
+                    
                 """);
-        controlFlujoMenu=Integer.parseInt(br.readLine());
+        controlFlujoMenu = Integer.parseInt(br.readLine());
+        if (controlFlujoMenu==10){
+            continuar=false;
+        }
+        do {
+            switch (controlFlujoMenu) {
+                case 1 -> {
+                    boolean continuar = true;
+                    do {
+                        System.out.println("""
+                                1.Empleado Fijo.
+                                                        
+                                2.Empleado Temporal.
+                                                        
+                                3.Dejar de introducir empleados.                        
+                                """);
+                        switch (Integer.parseInt(br.readLine())) {
+                            case 1 -> {
+                                tipodeContrato = "Fijo";
+                                do {
+                                    System.out.println("Numero de Seguridad Social");
+                                    numeroSS = br.readLine();
+                                } while (!validateWregex(numeroSS, "^[0-9]{8}[a-zA-Z]$"));
+                                System.out.println("Nombre");
+                                nombre = br.readLine();
 
-        switch (controlFlujoMenu){
-            case 1->{
-                boolean continuar=true;
-                do {
+                                do {
+                                    System.out.println("Fecha de nacimiento");
+                                    fechaNacimiento = br.readLine();
+                                } while (!validateWregex(numeroSS, "^(0?[1-9]|[12][0-9]|3[01])[\\/](0?[1-9]|1[012])[/\\/](19|20)\\d{2}$"));
+                                System.out.println("Sexo(H/M)");
+                                //Llamo a un metodo para cortar la String y pasarla a char
+                                //Devuelve 0 si el dato no es ok
+                                sexo = validateLenght(br.readLine());
+                                System.out.println("Salario");
+                                salario = Integer.parseInt(br.readLine());
+                                System.out.println("IRPF");
+                                irpf = Integer.parseInt(br.readLine());
+                                System.out.println("Trienios");
+                                trienios = Integer.parseInt(br.readLine());
+                                addEmployeeF(listadoEmpleadosActivo, numeroSS, nombre, fechaNacimiento, sexo, salario, irpf, trienios);
+                            }
+                            case 2 -> {
+                                tipodeContrato = "Temporal";
+
+                                do {
+                                    System.out.println("Numero de Seguridad Social");
+                                    numeroSS = br.readLine();
+                                } while (!validateWregex(numeroSS, "^[0-9]{8}[a-zA-Z]$"));
+                                System.out.println("Nombre");
+                                nombre = br.readLine();
+
+                                do {
+                                    System.out.println("Fecha de nacimiento");
+                                    fechaNacimiento = br.readLine();
+                                } while (!validateWregex(numeroSS, "^(0?[1-9]|[12][0-9]|3[01])[\\/](0?[1-9]|1[012])[/\\/](19|20)\\d{2}$"));
+
+                                System.out.println("Sexo(H/M)");
+                                //Llamo a un metodo para cortar la String y pasarla a char
+                                //Devuelve 0 si el dato no es ok
+                                sexo = validateLenght(br.readLine());
+                                System.out.println("Fecha de inicio del contrato");
+                                fechaInicio = br.readLine();
+                                System.out.println("Fecha fin del contrato");
+                                fechaFin = br.readLine();
+                                System.out.println("Coste por dia del trabajador");
+                                precioDia = Double.parseDouble(br.readLine());
+                                addEmployeeT(listadoEmpleadosActivo, numeroSS, nombre, fechaNacimiento, sexo, fechaInicio, fechaFin, precioDia);
+                            }
+                            case 3 -> {
+                                continuar = false;
+                            }
+                        }
+                    } while (continuar);
+                }
+
+                case 2 -> {
+
+                    do {
+                        System.out.println("Empleado al que añadir la venta?(NSS)");
+                        numeroSS = br.readLine();
+                    } while (!validateWregex(numeroSS, "^[0-9]{8}[a-zA-Z]$") && (!buscarEmpleado(listadoEmpleadosActivo, numeroSS,0).equalsIgnoreCase("Nombre no encontrado")));
+                    System.out.println("Quieres añadir la venta a " + buscarEmpleado(listadoEmpleadosActivo, numeroSS) + " (Y/N)?");
+                    if (br.readLine().equalsIgnoreCase("Y")) {
+                        addSale(listadoEmpleadosActivo, numeroSS);
+                    }
+                }
+
+                case 3 -> {
                     System.out.println("""
-                            1.Empleado Fijo.
-                                                    
-                            2.Empleado Temporal.
-                                                    
-                            3.Dejar de introducir empleados.                        
+                            Que deseas hacer ?
+                            1.Guardar y dar de baja.
+                            2.Solo guardar.
                             """);
-                    switch (Integer.parseInt(br.readLine())) {
+                    controlFlujoMenu=Integer.parseInt(br.readLine());
+                    switch (controlFlujoMenu) {
                         case 1 -> {
-                            tipodeContrato = "Fijo";
                             do {
-                                System.out.println("Numero de Seguridad Social");
-                                numeroSS=br.readLine();
-                            }while(!validateWregex(numeroSS,"^[0-9]{8}[a-zA-Z]$"));
-                            System.out.println("Nombre");
-                            nombre=br.readLine();
-
-                            do {
-                                System.out.println("Fecha de nacimiento");
-                                fechaNacimiento=br.readLine();
-                            }while(!validateWregex(numeroSS,"^(0?[1-9]|[12][0-9]|3[01])[\\/](0?[1-9]|1[012])[/\\/](19|20)\\d{2}$"));
-                            System.out.println("Sexo(H/M)");
-                            //Llamo a un metodo para cortar la String y pasarla a char
-                            //Devuelve 0 si el dato no es ok
-                            sexo=validateLenght(br.readLine());
-                            System.out.println("Salario");
-                            salario=Integer.parseInt(br.readLine());
-                            System.out.println("IRPF");
-                            irpf=Integer.parseInt(br.readLine());
-                            System.out.println("Trienios");
-                            trienios=Integer.parseInt(br.readLine());
-                            addEmployeeF(listadoEmpleadosActivo,numeroSS,nombre,fechaNacimiento,sexo,salario,irpf,trienios);
+                                System.out.println("Empleado al que dar de baja?(NSS)");
+                                numeroSS = br.readLine();
+                            } while (!validateWregex(numeroSS, "^[0-9]{8}[a-zA-Z]$") && (!buscarEmpleado(listadoEmpleadosActivo, numeroSS,0).equalsIgnoreCase("Nombre no encontrado")));
+                            System.out.println("Quieres dar de baja a " + buscarEmpleado(listadoEmpleadosActivo, numeroSS) + " (Y/N)?");
+                            if (br.readLine().equalsIgnoreCase("Y")) {
+                                //este buscarEmpleado me devuelve la posicion
+                                bajas(listadoEmpleadosActivo, buscarEmpleado(listadoEmpleadosActivo,numeroSS));
+                            }
                         }
                         case 2 -> {
-                            tipodeContrato = "Temporal";
-
                             do {
-                                System.out.println("Numero de Seguridad Social");
-                                numeroSS=br.readLine();
-                            }while(!validateWregex(numeroSS,"^[0-9]{8}[a-zA-Z]$"));
-                            System.out.println("Nombre");
-                            nombre=br.readLine();
-
-                            do {
-                                System.out.println("Fecha de nacimiento");
-                                fechaNacimiento=br.readLine();
-                            }while(!validateWregex(numeroSS,"^(0?[1-9]|[12][0-9]|3[01])[\\/](0?[1-9]|1[012])[/\\/](19|20)\\d{2}$"));
-
-                            System.out.println("Sexo(H/M)");
-                            //Llamo a un metodo para cortar la String y pasarla a char
-                            //Devuelve 0 si el dato no es ok
-                            sexo=validateLenght(br.readLine());
-                            System.out.println("Fecha de inicio del contrato");
-                            fechaInicio=br.readLine();
-                            System.out.println("Fecha fin del contrato");
-                            fechaFin=br.readLine();
-                            System.out.println("Coste por dia del trabajador");
-                            precioDia=Double.parseDouble(br.readLine());
-                            addEmployeeT(listadoEmpleadosActivo,numeroSS,nombre,fechaNacimiento,sexo,fechaInicio,fechaFin,precioDia);
+                                System.out.println("Empleado al que dar de baja?(NSS)");
+                                numeroSS = br.readLine();
+                            } while (!validateWregex(numeroSS, "^[0-9]{8}[a-zA-Z]$") && (!buscarEmpleado(listadoEmpleadosActivo, numeroSS,0).equalsIgnoreCase("Nombre no encontrado")));
+                            System.out.println("Quieres dar de baja a " + buscarEmpleado(listadoEmpleadosActivo, numeroSS) + " (Y/N)?");
+                            if (br.readLine().equalsIgnoreCase("Y")) {
+                                //este buscarEmpleado me devuelve la posicion
+                                bajas(listadoEmpleadosActivo,listadoEmpleadosDadosDeBaja, buscarEmpleado(listadoEmpleadosActivo,numeroSS));
+                            }
                         }
-                        case 3 -> {
-                            continuar = false;
                         }
-                    }
-                }while(continuar);
-            }
-
-            case 2->{
-
-                do {
-                    System.out.println("Empleado al que añadir la venta?(NSS)");
-                    numeroSS=br.readLine();
-                }while(!validateWregex(numeroSS,"^[0-9]{8}[a-zA-Z]$")&&(!buscarEmpleado(listadoEmpleadosActivo,numeroSS).equalsIgnoreCase("Nombre no encontrado")));
-                System.out.println("Quieres añadir la venta a "+buscarEmpleado(listadoEmpleadosActivo,numeroSS)+" (Y/N)?");
-                if (br.readLine().equalsIgnoreCase("Y")){
-                    addSale(listadoEmpleadosActivo,numeroSS);
                 }
             }
-        }
-    }
 
+        } while (continuar);
+
+    }
     // TODO no se como hacer un return de datos distintos desde el mismo metodo un Array debe ser de los mismos datos
     public static void requestKeyboardCommon()throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -141,7 +180,7 @@ public class MainEmpleado {
 
     }
 
-    public static  String buscarEmpleado(ArrayList<Empleado> listadoEmpleadosActivo,String nss){
+    public static  String buscarEmpleado(ArrayList<Empleado> listadoEmpleadosActivo,String nss,int z){
         ordenarPorAtributo(listadoEmpleadosActivo,nss);
         for(Empleado e:listadoEmpleadosActivo){
             if ((e instanceof EmpTemporal)&&(e.getNss().equalsIgnoreCase(nss))){
@@ -151,6 +190,23 @@ public class MainEmpleado {
         return "Nombre no encontrado";
     }
 
+    public static int buscarEmpleado(ArrayList<Empleado> listadoEmpleadosActivo,String nss){
+        ordenarPorAtributo(listadoEmpleadosActivo,nss);
+        int salida=-1;
+        for (int i = 0; i < listadoEmpleadosActivo.size(); i++) {
+            if(listadoEmpleadosActivo.get(i).getNss().equalsIgnoreCase(nss)){
+               salida=i;
+            }
+        }
+       return salida;
+    }
+    public static void bajas(ArrayList<Empleado> listadoEmpleadosActivo,ArrayList<Empleado> listadoEmpleadosDadosdeBaja,int indice){
+        listadoEmpleadosDadosdeBaja.add(listadoEmpleadosActivo.get(indice));
+        listadoEmpleadosActivo.remove(indice);
+    }
+    public static void bajas(ArrayList<Empleado> listadoEmpleadosActivo,int indice){
+        listadoEmpleadosActivo.remove(indice);
+    }
     public static void addSale(ArrayList<Empleado> listadoEmpleadosActivo,String nss){
         ordenarPorAtributo(listadoEmpleadosActivo,nss);
         for(Empleado e:listadoEmpleadosActivo){

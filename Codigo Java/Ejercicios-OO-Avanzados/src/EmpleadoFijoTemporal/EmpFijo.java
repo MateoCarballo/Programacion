@@ -8,8 +8,7 @@ public class EmpFijo extends Empleado{
     private float irpf;
     private int trienios;
 
-    public EmpFijo(String nss, String nombre,
-                   String fechaDeNacimiento, char sexo, int salario, float irpf, int trienios) {
+    public EmpFijo(String nss, String nombre,String fechaDeNacimiento, char sexo, int salario, float irpf, int trienios) {
         super(nss, nombre, fechaDeNacimiento, sexo);
         this.salario = salario;
         this.irpf = irpf;

@@ -47,14 +47,15 @@ public class MainEmpleado {
         do {
             switch (controlFlujoMenu) {
                 case 1 -> {
-                    boolean continuar = true;
                     do {
                         System.out.println("""
                                 1.Empleado Fijo.
                                                         
                                 2.Empleado Temporal.
                                                         
-                                3.Dejar de introducir empleados.                        
+                                3.Dejar de introducir empleados. 
+                                
+                                4.Modificaciones.                       
                                 """);
                         switch (Integer.parseInt(br.readLine())) {
                             case 1 -> {
@@ -140,6 +141,7 @@ public class MainEmpleado {
                             do {
                                 System.out.println("Empleado al que dar de baja?(NSS)");
                                 numeroSS = br.readLine();
+                                //a este le pase parametros distintos para tener dos devoluciones distintas al mismo nombre
                             } while (!validateWregex(numeroSS, "^[0-9]{8}[a-zA-Z]$") && (!buscarEmpleado(listadoEmpleadosActivo, numeroSS,0).equalsIgnoreCase("Nombre no encontrado")));
                             System.out.println("Quieres dar de baja a " + buscarEmpleado(listadoEmpleadosActivo, numeroSS) + " (Y/N)?");
                             if (br.readLine().equalsIgnoreCase("Y")) {
@@ -160,6 +162,8 @@ public class MainEmpleado {
                         }
                         }
                 }
+                //TODO pendiente punto 4 y 5
+                case 4->{}
             }
 
         } while (continuar);

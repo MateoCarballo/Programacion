@@ -11,16 +11,15 @@ public class EmpTemporal extends Empleado{
     private String fechaFin;
     private double precioDia;
 
-    private ArrayList<Ventas> listadoVentas = new ArrayList<>();
+    private ArrayList<Venta> listadoVentas = new ArrayList<>();
 
     public EmpTemporal(String nss, String nombre, String fechaDeNacimiento,
-                   char sexo, String fechaInicio, String fechaFin, double precioDia,
-                   ArrayList<Ventas> listadoVentas) {
+                   char sexo, String fechaInicio, String fechaFin, double precioDia) {
         super(nss, nombre, fechaDeNacimiento, sexo);
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.precioDia = precioDia;
-        this.listadoVentas = listadoVentas;
+
     }
 
     public String getFechaInicio() {
@@ -47,14 +46,22 @@ public class EmpTemporal extends Empleado{
         this.precioDia = precioDia;
     }
 
-    public ArrayList<Ventas> getListadoVentas() {
+    public ArrayList<Venta> getListadoVentas() {
         return listadoVentas;
     }
 
-    public void setListadoVentas(ArrayList<Ventas> listadoVentas) {
+    public void setListadoVentas(ArrayList<Venta> listadoVentas) {
         this.listadoVentas = listadoVentas;
     }
 
+
+    public void añadirVenta(){
+        listadoVentas.add(new Venta());
+    }
+
+    public void borrarVenta(int indice){
+        listadoVentas.remove(indice);
+    }
     @Override
     public float sueldo() throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("DD/MM/YYYY");

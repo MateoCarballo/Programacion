@@ -1,4 +1,4 @@
 package EmpleadoFijoTemporal;
 
-public class Ventas {
+public class Venta {
 }

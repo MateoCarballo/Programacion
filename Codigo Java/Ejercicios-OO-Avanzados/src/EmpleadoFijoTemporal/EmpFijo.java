@@ -47,7 +47,7 @@ public class EmpFijo extends Empleado{
 
     @Override
     public String toString() {
-        super.toString();
+        System.out.println(super.toString());
         return "EmpFijo{" +
                 "salario=" + salario +
                 ", irpf=" + irpf +

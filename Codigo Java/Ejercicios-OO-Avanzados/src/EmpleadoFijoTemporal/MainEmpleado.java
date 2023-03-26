@@ -4,14 +4,15 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Date;
 import java.util.Random;
 
 public class MainEmpleado {
 
     public static void main(String[] args) throws IOException, ParseException {
-        boolean continuar =false;
+        boolean continuar =true;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String tipodeContrato;
         // Para guardar los atrib comunes
@@ -34,18 +35,17 @@ public class MainEmpleado {
 
         ArrayList<Empleado> listadoEmpleadosActivo = new ArrayList<>();
         ArrayList<Empleado> listadoEmpleadosDadosDeBaja = new ArrayList<>();
-
         rellenarEmpleados(listadoEmpleadosActivo);
-
         for (int i = 0; i <5 ; i++) {
             bajas(listadoEmpleadosActivo,listadoEmpleadosDadosDeBaja,i);
         }
         Visualizar v = new Visualizar();
-        v.visualiza(listadoEmpleadosActivo);
 
-        v.visualiza(listadoEmpleadosActivo,listadoEmpleadosDadosDeBaja);
-
-        System.out.println("""
+        for (int i = 0; i < listadoEmpleadosActivo.size(); i++) {
+            System.out.println( listadoEmpleadosActivo.get(i).toString());
+        }
+        do {
+              System.out.println("""
                 ###########################################
                                 Menu:   
                                                 
@@ -53,13 +53,14 @@ public class MainEmpleado {
                 2.Añadir venta(Solo a empleados temporales). 
                 3.Bajas.
                 4.Modifcar datos de empleado existente.
-                5.Visualizar.    
+                5.Visualizar.
+                6.Consular ventas.    
                 """);
         controlFlujoMenu = Integer.parseInt(br.readLine());
         if (controlFlujoMenu==10){
             continuar=false;
         }
-        do {
+
             switch (controlFlujoMenu) {
                 case 1 -> {
                     do {
@@ -131,19 +132,29 @@ public class MainEmpleado {
                         }
                     } while (continuar);
                 }
-
                 case 2 -> {
 
                     do {
                         System.out.println("Empleado al que añadir la venta?(NSS)");
                         numeroSS = br.readLine();
                     } while (!validateWregex(numeroSS, "^[0-9]{8}[a-zA-Z]$") && (!buscarEmpleado(listadoEmpleadosActivo, numeroSS,0).equalsIgnoreCase("Nombre no encontrado")));
-                    System.out.println("Quieres añadir la venta a " + buscarEmpleado(listadoEmpleadosActivo, numeroSS) + " (Y/N)?");
+                    System.out.println("Quieres añadir la venta a " + (listadoEmpleadosActivo.get(buscarEmpleado(listadoEmpleadosActivo, numeroSS)).getNombre()) + " (Y/N)?");
                     if (br.readLine().equalsIgnoreCase("Y")) {
-                        addSale(listadoEmpleadosActivo, numeroSS);
+                        String fechaventa;
+                        do {
+                            System.out.println("introduce el dia de la venta");
+                            fechaventa= br.readLine();
+                        } while (!validateWregex(fechaventa,"^(0?[1-9]|[12][0-9]|3[01])[\\/](0?[1-9]|1[012])[/\\/](19|20)\\d{2}$"));
+                        int ventaI;
+                        String ventaS;
+                        do {
+                            System.out.println("valor de la venta");
+                            ventaS=br.readLine();
+                        } while (!validateWregex(ventaS,"\\d+"));
+                        ventaI=Integer.parseInt(ventaS);
+                        addSale(listadoEmpleadosActivo, numeroSS,fechaventa,ventaI);
                     }
                 }
-
                 case 3 -> {
                     System.out.println("""
                             Que deseas hacer ?
@@ -177,7 +188,6 @@ public class MainEmpleado {
                         }
                         }
                 }
-                //TODO pendiente punto 5
                 case 4->{
                     System.out.println("Modificaciones");
                     do {
@@ -223,6 +233,9 @@ public class MainEmpleado {
                             v.visualiza(listadoEmpleadosActivo,listadoEmpleadosDadosDeBaja);
                         }
                     }
+                }
+                case 6 ->{
+                    v.visualizarVentasTemporales(listadoEmpleadosActivo,conseguirPosicionesVentas(listadoEmpleadosActivo));
                 }
             }
         } while (continuar);
@@ -270,14 +283,45 @@ public class MainEmpleado {
     public static void bajas(ArrayList<Empleado> listadoEmpleadosActivo,int indice){
         listadoEmpleadosActivo.remove(indice);
     }
-    public static void addSale(ArrayList<Empleado> listadoEmpleadosActivo,String nss){
+    public static boolean addSale(ArrayList<Empleado> listadoEmpleadosActivo, String nss, String fechaVenta, int valorVenta) throws ParseException {
         OrdenacionesBusquedas.ordenarPorAtributo(listadoEmpleadosActivo,nss);
+        boolean complete=false;
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Date dateSale = sdf.parse(fechaVenta);
+        Date dateEnd ;
         for(Empleado e:listadoEmpleadosActivo){
+
             if ((e instanceof EmpTemporal)&&(e.getNss().equalsIgnoreCase(nss))){
-                ((EmpTemporal) e).añadirVenta();
+                dateEnd=sdf.parse(((EmpTemporal) e).getFechaFin());
+                //dateEnd es anterior a dateSale cuando el resultado es < 0
+                if(dateEnd.compareTo(dateSale)>0) {
+                    Venta v = new Venta(valorVenta, fechaVenta);
+                    ((EmpTemporal) e).añadirVenta(v);
+                    complete=true;
+                }
             }
         }
+        return complete;
     }
+
+    public static ArrayList<Integer> conseguirPosicionesVentas(ArrayList<Empleado> listadoEmp){
+        int contador=0;
+        ArrayList<Integer> posiciones= new ArrayList<Integer>();
+        posiciones.clear();
+        for (int i = 0; i <listadoEmp.size() ; i++){
+            if (listadoEmp.get(i) instanceof EmpTemporal){
+                if(((EmpTemporal) listadoEmp.get(i)).buscarVentas()){
+                    posiciones.add(i);
+                }
+            }
+        }
+        for (int i = 0; i < posiciones.size(); i++) {
+            posiciones.get(i);
+
+        }
+        return posiciones;
+    }
+
     public static boolean validateWregex(String entradaTeclado, String regex) {
 /*
         -9 digitos 8numeros el ultimo letra
@@ -320,15 +364,17 @@ public static boolean validateNSS(String s){
         return s.matches("^[0-9]{8}[a-zA-Z]$");
     }
      */
-    public static void rellenarEmpleados(ArrayList<Empleado> listaEmp){
+    public static void rellenarEmpleados(ArrayList<Empleado> listaEmp) throws ParseException {
         for (int i = 0; i < 5; i++) {
             listaEmp.add(new EmpTemporal(Enum.nss[genNAle(0,19)],
                                         Enum.nombresHombres[genNAle(0,9)],
                                         Enum.fechasNacimiento[genNAle(0,19)],
                                         Enum.sexos[genNAle(0,1)],
-                                        Enum.fechasInicio[genNAle(0,4)],
-                                        Enum.fechasFin[genNAle(0, 4)],
+                                            "01/03/2022",
+                                            "01/12/2022",
                                         Enum.preciosDia[genNAle(0,9)]));
+
+            addSale(listaEmp,listaEmp.get(i).getNss(),"01/06/2022",100000);
         }
         for (int i = 0; i < 5; i++) {
             listaEmp.add(new EmpTemporal(Enum.nss[genNAle(0,19)],

@@ -56,8 +56,8 @@ public class EmpTemporal extends Empleado{
     }
 
 
-    public void añadirVenta(){
-        listadoVentas.add(new Venta());
+    public void añadirVenta(Venta ventaEntrada){
+        listadoVentas.add(ventaEntrada);
     }
 
     public void borrarVenta(int indice){
@@ -75,9 +75,25 @@ public class EmpTemporal extends Empleado{
         return sueldo;
     }
 
+    public int totalVentas(){
+        int totalVentas=0;
+        for (int i = 0; i < listadoVentas.size(); i++){
+            totalVentas += listadoVentas.get(i).getValorVenta();
+        }
+        return totalVentas;
+    }
+    public boolean buscarVentas(){
+        boolean ventaOK=false;
+        for (int i = 0; i <listadoVentas.size() ; i++) {
+            if(listadoVentas.get(i).getValorVenta()>10000){
+                ventaOK=true;
+            }
+        }
+        return ventaOK ;
+    }
     @Override
     public String toString() {
-        super.toString();
+        System.out.println(super.toString());
         return "EmpTemporal{" +
                 "fechaInicio='" + fechaInicio + '\'' +
                 ", fechaFin='" + fechaFin + '\'' +

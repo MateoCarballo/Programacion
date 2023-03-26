@@ -63,6 +63,12 @@ public class Visualizar {
             }
         }
     }
-
+public void visualizarVentasTemporales(ArrayList<Empleado> listaEmpleados,ArrayList<Integer> indices){
+    System.out.println(                            "\n"+" Ventas"+"\n");
+    System.out.format("%-15s %-15s\n", "Empleado","Total de ventas");
+    for (int i = 0; i < indices.size(); i++) {
+        System.out.format("%-15s %-15s\n",listaEmpleados.get(indices.get(i)).getNombre(),((EmpTemporal) listaEmpleados.get(indices.get(i))).totalVentas());
+    }
+}
     }
 

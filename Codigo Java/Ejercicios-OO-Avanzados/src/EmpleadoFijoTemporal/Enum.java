@@ -22,8 +22,8 @@ public class Enum {
             49000, 22000, 26000, 28000, 30000};
 
     public static final float[] irpf = {0.1f, 0.12f, 0.15f, 0.2f, 0.25f, 0.3f, 0.35f, 0.4f, 0.45f, 0.5f};
-    public static final String[]fechasInicio= {"01/01/2020","01/02/2020","01/03/2020","01/04/2020","01/05/2020"};
-    public static final String[]fechasFin={"01/01/2022","01/02/2022","01/03/2022","01/04/2022","01/05/2022"};
+    public static final String[]fechasInicio= {"01/01/2022","01/02/2022","01/03/2022","01/04/2022","01/05/2022"};
+    public static final String[]fechasFin={"01/06/2022","01/07/2022","01/08/2022","01/09/2022","01/10/2022"};
     public static final double[]preciosDia={50.0,51.50,52.50,53.60,54.10,55.70,60.0,62.40,66.80,70.0};
         }
 

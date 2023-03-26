@@ -50,4 +50,14 @@ public abstract class Empleado {
     }
 
    public abstract float sueldo() throws ParseException;
+
+    @Override
+    public String toString() {
+        return "Empleado{" +
+                "nss='" + nss + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", fechaDeNacimiento='" + fechaDeNacimiento + '\'' +
+                ", sexo=" + sexo +
+                '}';
+    }
 }

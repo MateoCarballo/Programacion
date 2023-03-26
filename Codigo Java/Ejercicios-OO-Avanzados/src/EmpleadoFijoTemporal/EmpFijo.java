@@ -41,7 +41,17 @@ public class EmpFijo extends Empleado{
 
     @Override
     public float sueldo() {
-        float sueldo = ((float) salario + (30 * trienios) * (1 - irpf));
+        float sueldo = ((float) salario + ((300 * trienios) * (1 - irpf)));
         return sueldo;
+    }
+
+    @Override
+    public String toString() {
+        super.toString();
+        return "EmpFijo{" +
+                "salario=" + salario +
+                ", irpf=" + irpf +
+                ", trienios=" + trienios +
+                '}';
     }
 }

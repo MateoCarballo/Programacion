@@ -3,13 +3,14 @@ package EmpleadoFijoTemporal;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
 public class MainEmpleado {
 
-    public static void main(String[] args)throws IOException {
+    public static void main(String[] args) throws IOException, ParseException {
         boolean continuar =false;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String tipodeContrato;
@@ -36,17 +37,23 @@ public class MainEmpleado {
 
         rellenarEmpleados(listadoEmpleadosActivo);
 
-        listadoEmpleadosActivo.add(new EmpFijo("12345678F","Empleado Fijo","01/01/1990",'H',15000,10,4));
-        listadoEmpleadosActivo.add(new EmpTemporal("12345678F","Empleado Fijo","01/01/1990",'H',"01/01/2018","01/06/2018",50.50));
+        for (int i = 0; i <5 ; i++) {
+            bajas(listadoEmpleadosActivo,listadoEmpleadosDadosDeBaja,i);
+        }
         Visualizar v = new Visualizar();
         v.visualiza(listadoEmpleadosActivo);
 
+        v.visualiza(listadoEmpleadosActivo,listadoEmpleadosDadosDeBaja);
+
         System.out.println("""
-                Menú:     
+                ###########################################
+                                Menu:   
+                                                
                 1.Alta nuevo empleado. 
                 2.Añadir venta(Solo a empleados temporales). 
                 3.Bajas.
-                    
+                4.Modifcar datos de empleado existente.
+                5.Visualizar.    
                 """);
         controlFlujoMenu = Integer.parseInt(br.readLine());
         if (controlFlujoMenu==10){
@@ -195,11 +202,32 @@ public class MainEmpleado {
                         }
                     }
                 }
+                case 5->{
+                    String entradaTeclado;
+                    do {
+                    System.out.println("""
+                            
+                            Visualizar:
+                            1.Empleados y sueldo.
+                            2.Empleados(fijos/temporales) y sus caracteristicas particulares.
+                            
+                            """);
+                        entradaTeclado=br.readLine();
+                    }while(!validateWregex(entradaTeclado, "^[0-9]{1}$"));
+
+                    switch (Integer.parseInt(entradaTeclado)){
+                        case 1->{
+                            v.visualiza(listadoEmpleadosActivo);
+                        }
+                        case 2->{
+                            v.visualiza(listadoEmpleadosActivo,listadoEmpleadosDadosDeBaja);
+                        }
+                    }
+                }
             }
-
         } while (continuar);
-
     }
+
     // TODO no se como hacer un return de datos distintos desde el mismo metodo un Array debe ser de los mismos datos
     public static void requestKeyboardCommon()throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -235,7 +263,7 @@ public class MainEmpleado {
         }
        return salida;
     }
-    public static void bajas(ArrayList<Empleado> listadoEmpleadosActivo,ArrayList<Empleado> listadoEmpleadosDadosdeBaja,int indice){
+    public static void bajas(ArrayList<Empleado> listadoEmpleadosActivo,ArrayList<Empleado> listadoEmpleadosDadosdeBaja,int indice) throws ParseException {
         listadoEmpleadosDadosdeBaja.add(listadoEmpleadosActivo.get(indice));
         listadoEmpleadosActivo.remove(indice);
     }
@@ -319,7 +347,7 @@ public static boolean validateNSS(String s){
                     Enum.sexos[genNAle(0,1)],
                     Enum.salarios[genNAle(0,9)],
                     Enum.irpf[genNAle(0,9)],
-                    genNAle(0,9)));
+                    genNAle(0,3)));
         }
         for (int i = 0; i < 5; i++) {
             listaEmp.add(new EmpFijo(Enum.nss[genNAle(0,19)],
@@ -328,7 +356,7 @@ public static boolean validateNSS(String s){
                     Enum.sexos[genNAle(0,1)],
                     Enum.salarios[genNAle(0,9)],
                     Enum.irpf[genNAle(0,9)],
-                    genNAle(0,9)));
+                    genNAle(0,3)));
         }
     }
 

@@ -1,33 +1,68 @@
 package EmpleadoFijoTemporal;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 public class Visualizar {
 
     public void visualiza(ArrayList<Empleado> listaEmpleadosActivos){
         OrdenacionesBusquedas.ordenarPorAtributo(listaEmpleadosActivos,"nombre");
-        System.out.println("##################################################");
-        System.out.println("                    Empleado                      ");
-        System.out.println("##################################################");
-        System.out.println("    Nombre                              Sueldo    ");
-        System.out.println("##################################################");
+        System.out.println("      Empleado");
+        System.out.format("%-15s %-15s\n", "Nombre", "Sueldo");
         for (Empleado e: listaEmpleadosActivos){
-
             if(e instanceof EmpFijo){
-                String salidaPantalla;
-                String espacio=" ";
-                do{
-                    espacio=espacio+" ";
-                    salidaPantalla=e.getNombre()+espacio+((EmpFijo)e).getSalario();
-                }while(salidaPantalla.length()<42);
-                salidaPantalla="    "+e.getNombre()+espacio+((EmpFijo)e).getSalario();
-                System.out.println(salidaPantalla);
-                System.out.println("--------------------------------------------------");
+                System.out.format("%-15s %-15s\n",e.getNombre(),((EmpFijo)e).getSalario());
+
             }
         }
 
     }
 
-    public void visualiza(ArrayList<Empleado> listaEmpleadosActivos,ArrayList<Empleado> listaEmpleadosBaja){
+    public void visualiza(ArrayList<Empleado> listaEmpleadosActivos,ArrayList<Empleado> listaEmpleadosBaja) throws ParseException {
+        int contador=0;
+        OrdenacionesBusquedas.ordenarPorAtributo(listaEmpleadosActivos,"nombre");
+        System.out.println("                                Empleados en activo"+"\n");
+        System.out.println("Empleados Temporales"+"\n");
+        System.out.format("%-15s %-15s %-15s %-15s\n", "Nombre", "Fecha Inicio","Fecha Fin","Sueldo");
+
+        for (Empleado e: listaEmpleadosActivos){
+            if(e instanceof EmpTemporal){
+                contador+=1;
+                System.out.format("%-15s %-15s %-15s %-15s\n",((EmpTemporal)e).getNombre(),((EmpTemporal)e).getFechaInicio(),((EmpTemporal)e).getFechaFin(),((EmpTemporal)e).sueldo());
+            }
+            if (contador==3){
+                System.out.format("%-15s %-15s %-15s %-15s\n", "Nombre", "Fecha Inicio","Fecha Fin","Sueldo");
+                contador=0;
+            }
+        }
+        System.out.println("\n");
+        System.out.println("Empleados Fijos"+"\n");
+        System.out.format("%-15s %-15s %-15s\n", "Nombre", "Trienios","Sueldo");
+        contador=0;
+
+        for (Empleado e: listaEmpleadosActivos){
+
+            if(e instanceof EmpFijo){
+                contador+=1;
+                System.out.format("%-15s %-15s %-15s\n",((EmpFijo)e).getNombre(),((EmpFijo) e).getTrienios(),(e).sueldo());
+            }
+            if (contador==3){
+                System.out.format("%-15s %-15s %-15s\n", "Nombre", "Trienios","Sueldo");
+                contador=0;
+            }
+        }
+        System.out.println(                            "\n"+" Empleados dados de baja"+"\n");
+        System.out.format("%-15s %-15s\n", "Nombre","Sueldo");
+        contador=0;
+
+        for (Empleado e: listaEmpleadosBaja){
+            contador+=1;
+            System.out.format("%-15s %-15s\n",(e).getNombre(),String.format("%.2f",e.sueldo()));
+            if (contador==3){
+                System.out.format("%-15s %-15s\n", "Nombre","Sueldo");
+                contador=0;
+            }
+        }
+    }
 
     }
-}
+

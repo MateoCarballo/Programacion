@@ -28,3 +28,4 @@ Enlace para volver al repositorio principal del curso:
 | Busquedas y ordenaciones    | [Acceso rápido](./Codigo%20Java/Busquedas-y-Ordenaciones) |
 | Ejercicios entregables segundo trimestre. |                               |
 | Gestion de notas y Concesionario | [Acceso rápido](./Codigo%20Java/Entregables-Segundo-Trimestre) |
+| Mi examen 2º Trimestre | [Acceso rápido](./Codigo%20Java/ExamenSegundoTrimestreMateoCarballo) |

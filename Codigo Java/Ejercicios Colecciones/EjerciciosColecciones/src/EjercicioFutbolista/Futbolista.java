@@ -21,7 +21,7 @@ public class Futbolista {
     }
 
     private void jugarPartido(){
-        
+
     }
     @Override
     public String toString() {

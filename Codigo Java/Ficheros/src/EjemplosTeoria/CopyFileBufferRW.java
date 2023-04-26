@@ -1,3 +1,5 @@
+package EjemplosTeoria;
+
 import java.io.*;
 
 public class CopyFileBufferRW{

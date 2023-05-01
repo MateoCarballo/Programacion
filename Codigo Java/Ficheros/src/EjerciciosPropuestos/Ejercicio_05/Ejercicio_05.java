@@ -81,7 +81,7 @@ public class Ejercicio_05 {
             read = new ObjectInputStream(new FileInputStream(register));
             vList= (ArrayList<Vehiculo>) read.readObject();
             for (Vehiculo v:vList) {
-                System.out.println(v.toString());
+                v.toString();
             }
         } catch (FileNotFoundException | ClassNotFoundException e) {
             throw new RuntimeException(e);

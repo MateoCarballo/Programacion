@@ -44,4 +44,9 @@ public class Vehiculo {
     public void setVolumenDesposito(int volumenDesposito) {
         this.volumenDesposito = volumenDesposito;
     }
+
+    @Override
+    public String toString() {
+            return String.format("| %-10s | %-10s | %-15s | %,10d L |", matricula, marca, modelo, volumenDesposito);
+    }
 }

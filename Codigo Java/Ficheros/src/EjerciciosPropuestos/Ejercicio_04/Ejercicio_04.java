@@ -1,9 +1,10 @@
 package EjerciciosPropuestos.Ejercicio_04;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Ejercicio_04 {
-
     public static void main(String[] args) throws IOException {
         System.out.println("######### EJERCICIO 04 ##########");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -13,14 +14,12 @@ public class Ejercicio_04 {
         if (!register.exists()){
             register.createNewFile();
         }else{
-            readRegister(sourcePath);
+            writteCarsSaved(readRegister(sourcePath));
         }
-        String matricula = br.readLine();
-        String marca= br.readLine();
-        String modelo = br.readLine();
-        int volumenDeposito= Integer.parseInt(br.readLine());
-
-
+        String matricula = "matricula";
+        String marca= "marca";
+        String modelo = "modelo";
+        int volumenDeposito= 100;
         saveCar(createCar(matricula,marca,modelo,volumenDeposito),sourcePath);
 
     }
@@ -29,22 +28,17 @@ public class Ejercicio_04 {
         return miCoche;
     }
 
-
     public static boolean saveCar(Vehiculo car, String sourcePath) throws IOException {
         boolean writeComplete = false;
         File register = new File(sourcePath+"Register.dat");
         DataOutputStream writeAtributes =null;
         try{
-            if (register.canWrite()){
                 writeAtributes = new DataOutputStream(new FileOutputStream(register));
                 writeAtributes.writeUTF(car.getMatricula());
                 writeAtributes.writeUTF(car.getMarca());
                 writeAtributes.writeUTF(car.getModelo());
                 writeAtributes.writeInt(car.getVolumenDesposito());
                 writeComplete=true;
-            }
-
-
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } finally{
@@ -55,22 +49,21 @@ public class Ejercicio_04 {
         return writeComplete;
     }
 
-    public static Vehiculo readRegister(String sourcePath) throws IOException {
+    public static ArrayList<Vehiculo> readRegister(String sourcePath) throws IOException {
+        ArrayList<Vehiculo> vehiclelist = new ArrayList<>();
         boolean readComplete=false;
-        Vehiculo carToReturn=null;
         File register = new File(sourcePath+"Register.dat");
         DataInputStream readAtributes =null;
         try{
-
             readAtributes = new DataInputStream(new FileInputStream(register));
-
-            String matricula = readAtributes.readUTF();
-            String marca = readAtributes.readUTF();
-            String modelo = readAtributes.readUTF();
-            int volumenDeposito= readAtributes.readInt();
-            carToReturn=createCar(matricula,marca,modelo,volumenDeposito);
-            readComplete=true;
-
+            while(readAtributes.available()>0){
+                String matricula = readAtributes.readUTF();
+                String marca = readAtributes.readUTF();
+                String modelo = readAtributes.readUTF();
+                int volumenDeposito= readAtributes.readInt();
+                vehiclelist.add(createCar(matricula,marca,modelo,volumenDeposito));
+                readComplete=true;
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         } finally{
@@ -79,9 +72,15 @@ public class Ejercicio_04 {
             }
         }
         if(readComplete){
-            return carToReturn;
+            return vehiclelist;
         }else{
             return null;
+        }
+    }
+
+    public static void writteCarsSaved(ArrayList <Vehiculo> savedCars){
+        for (Vehiculo v :savedCars) {
+            System.out.println(v.toString());
         }
     }
 }

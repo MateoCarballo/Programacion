@@ -1,6 +1,8 @@
 
 # Programacion 💻
 
+![Alt text](img/Prueba%20imagen%20encabezado%20programacion.png)
+
 Repositorio para tener un respaldo de todo el trabajo hecho en clase. Incluyendo ejemplos y curiosidades.
 
 Enlace para volver al repositorio principal del curso:

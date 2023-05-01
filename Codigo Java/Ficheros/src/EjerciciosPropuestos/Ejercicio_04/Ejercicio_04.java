@@ -5,22 +5,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Ejercicio_04 {
+    private static final String SOURCE_PATH = "C:\\Users\\mateo\\Desktop\\Organizacion Git Marzo\\Programacion\\Codigo Java\\Ficheros\\src\\EjerciciosPropuestos\\Ejercicio_04\\";
+    private static final String REGISTER_FILE = "Register.dat";
     public static void main(String[] args) throws IOException {
         System.out.println("######### EJERCICIO 04 ##########");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         //String sourcePath= "C:\\Users\\a22mateoca\\Desktop\\Ficheros\\src\\Ficheros\\";
-        String sourcePath= "C:\\Users\\mateo\\Desktop\\Organizacion Git Marzo\\Programacion\\Codigo Java\\Ficheros\\src\\EjerciciosPropuestos\\Ejercicio_04\\";
-        File register = new File(sourcePath+"Register.dat");
+        File register = new File(SOURCE_PATH+REGISTER_FILE);
         if (!register.exists()){
             register.createNewFile();
         }else{
-            writteCarsSaved(readRegister(sourcePath));
+            if(register.length()!=0){
+                writteCarsSaved(readRegister(SOURCE_PATH));
+            }
         }
         String matricula = "matricula";
         String marca= "marca";
         String modelo = "modelo";
         int volumenDeposito= 100;
-        saveCar(createCar(matricula,marca,modelo,volumenDeposito),sourcePath);
+        saveCar(createCar(matricula,marca,modelo,volumenDeposito),SOURCE_PATH);
 
     }
     public static Vehiculo createCar (String matricula,String marca,String modelo,int volumenDeposito){

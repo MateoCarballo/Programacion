@@ -5,7 +5,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class UtilidadesFicheros {
-
+/*
     public void createFileIfItDoesntExist (String filePath) throws IOException {
         File filetoCreate = new File(filePath);
         if(!filetoCreate.exists()){
@@ -47,5 +47,7 @@ public class UtilidadesFicheros {
         }
         return myList;
     }
+
+ */
 
 }

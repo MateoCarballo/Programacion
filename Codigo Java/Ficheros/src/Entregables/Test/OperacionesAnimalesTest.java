@@ -3,14 +3,15 @@ package Entregables.Test;
 import Entregables.Animales.Gato;
 import Entregables.Animales.Perro;
 import Entregables.OperacionesAnimales;
-import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 class OperacionesAnimalesTest {
 
@@ -19,44 +20,69 @@ class OperacionesAnimalesTest {
     OperacionesAnimalesTest() throws IOException {
     }
 
-    @BeforeEach
-    void setUp(){
-
+    @BeforeClass
+    @Test
+    void setCondiciones(){
+        Gato gatoPadre = new Gato("Gato Padre",10,true);
+        Perro perroPadre = new Perro("Perro Padre",10,true);
+        misOperaciones.addGato(gatoPadre);
+        misOperaciones.addGato(gatoPadre);
+        misOperaciones.addGato(gatoPadre);
+        misOperaciones.addGato(gatoPadre);
+        misOperaciones.addPerro(perroPadre);
+        misOperaciones.addPerro(perroPadre);
+        misOperaciones.addPerro(perroPadre);
+        misOperaciones.addPerro(perroPadre);
+    }
+    @Test
+    @DisplayName("Insertar un gato sabiendo que tenemos espacio-> El metodo devuelve TRUE")
+    void addGato1() throws IOException {
+        Gato gato = new Gato("Gato",10,false);
+        assertTrue(misOperaciones.addGato(gato));
+    }
+    @Test
+    @DisplayName("Insertar un perro sabiendo que tenemos espacio-> El metodo devuelve TRUE")
+    void addPerro1() throws IOException {
+        Perro perro = new Perro("Perro",10,false);
+        assertTrue(misOperaciones.addPerro(perro));
     }
 
     @Test
-    void addGato() throws IOException {
-        OperacionesAnimales misOperaciones= new OperacionesAnimales();
-        Gato gato1 = new Gato("gato1",10,true);
-        Gato gato2 = new Gato("gato2",10,false);
-        misOperaciones.addGato(gato1);
-        misOperaciones.addGato(gato2);
-        Gato gatos[]= misOperaciones.getGatosGuardados();
-        Assert.assertEquals(gatos[0],gato1);
-        Assert.assertEquals(gatos[1],gato1);
+    @DisplayName("Insertar un gato sabiendo que NO tenemos espacio-> El metodo devuelve FALSE")
+    void addGato2() throws IOException {
+        Gato gato = new Gato("Gato",10,false);
+        misOperaciones.addGato(gato);
+        assertFalse(misOperaciones.addGato(gato));
+    }
+    @Test
+    @DisplayName("Insertar un perro sabiendo que NO tenemos espacio-> El metodo devuelve FALSE")
+    void addPerro2() throws IOException {
+        Perro perro = new Perro("Perro",10,false);
+        misOperaciones.addPerro(perro);
+        assertFalse(misOperaciones.addPerro(perro));
+    }
+    @Test
+    void guardarAnimalesADisco() {
     }
 
     @Test
-    void addPerro() throws IOException {
-        Perro perro1 = new Perro("perro1",10,true);
-        Perro perro2 = new Perro("perro2",10,false);
-        misOperaciones.addPerro(perro1);
-        misOperaciones.addPerro(perro2);
-        Perro perros[]= misOperaciones.getPerrosGuardados();
-        Assert.assertEquals(perros[0],perro1);
-        Assert.assertEquals(perros[1],perro1);
+    void guardarNumeroPerros() {
     }
-    @Test
-    void guardarAnimalesADisco(){
-        Perro perros[]= new Perro[5];
-        perros[0]=new Perro("perro0",0,true);
-        perros[1]= new Perro("perro1",1,false);
-        perros[2]= new Perro("perro2",2,true);
-        perros[3]= new Perro("perro3",3,false);
-        perros[4]= new Perro("perro4", 4,true);
-        misOperaciones.guardarAnimalesADisco(misOperaciones.getRUTA_ARCHIVO());
-        File file = new File(misOperaciones.getRUTA_ARCHIVO());
 
+    @Test
+    void guardarNumeroGatos() {
+    }
+
+    @Test
+    void guardarElementosArrayListPerros() {
+    }
+
+    @Test
+    void guardarElementosArrayListGatos() {
+    }
+
+    @Test
+    void leerAnimalesDeDisco() {
     }
 
 }

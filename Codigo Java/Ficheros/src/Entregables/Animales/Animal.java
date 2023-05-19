@@ -9,7 +9,7 @@ public abstract class Animal implements Serializable {
     public Animal() {
     }
 
-    public Animal(String nombre,int edad) {
+    public Animal(String nombre, int edad) {
         this.nombre = nombre;
         this.edad = edad;
     }
@@ -29,6 +29,15 @@ public abstract class Animal implements Serializable {
     public void setEdad(int edad) {
         this.edad = edad;
     }
-    protected abstract void expresarse();
 
+    protected abstract void expresarse();
+    protected abstract void getTipoAnimal();
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "nombre='" + nombre + '\'' +
+                ", edad=" + edad +
+                '}';
+    }
 }

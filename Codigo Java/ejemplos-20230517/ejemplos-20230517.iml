@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/FichTexto_Bin" isTestSource="false" packagePrefix="UD5Ficheros.FichSecuenciales.LecturaEscrtitura.Main" />
+      <sourceFolder url="file://$MODULE_DIR$/FlujoBytes" isTestSource="false" packagePrefix="UD5Ficheros.FichSecuenciales.flujodebytes" />
+      <sourceFolder url="file://$MODULE_DIR$/FlujosDatos" isTestSource="false" packagePrefix="UD5Ficheros.FichSecuenciales.flujodedatos" />
+      <sourceFolder url="file://$MODULE_DIR$/JSON_LecturaEscritura" isTestSource="false" packagePrefix="ficheros.ejemplosApuntesAV.JSON.LecturaEscritura" />
+      <sourceFolder url="file://$MODULE_DIR$/Objetos" isTestSource="false" packagePrefix="UD5Ficheros.FichSecuenciales.serializacionobj" />
+      <sourceFolder url="file://$MODULE_DIR$/XML_JAXB" isTestSource="false" packagePrefix="ficheros.ejemplosApuntesAV.XML.JAXB" />
+      <sourceFolder url="file://$MODULE_DIR$/XML_Stream" isTestSource="false" packagePrefix="ficheros.ejemplosApuntesAV.XML.XStream.alumnos" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

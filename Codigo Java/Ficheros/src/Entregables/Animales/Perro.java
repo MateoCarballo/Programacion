@@ -9,8 +9,7 @@ public class Perro extends Animal {
         super(nombre, edad);
         this.tieneRaboLargo = tieneRaboLargo;
     }
-
-    public boolean isTieneRaboLargo() {
+    public boolean getTieneRaboLargo() {
         return tieneRaboLargo;
     }
 
@@ -21,6 +20,11 @@ public class Perro extends Animal {
     @Override
     protected void expresarse() {
         System.out.println("GUAU GUAU");
+    }
+
+    @Override
+    protected void getTipoAnimal() {
+
     }
 
     @Override

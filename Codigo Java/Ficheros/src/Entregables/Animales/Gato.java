@@ -25,6 +25,12 @@ public class Gato extends Animal {
     }
 
     @Override
+    protected void getTipoAnimal() {
+
+    }
+
+
+    @Override
     public String toString() {
         return super.toString()+
                 "tieneRaboLargo=" + tieneRaboLargo +

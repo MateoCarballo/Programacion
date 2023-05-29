@@ -1,0 +1,6 @@
+Queue<LibrosOcio> listadoPrestamos = new LinkedList<>();
+LibrosOcio libroParaProbar = new LibrosOcio();
+listadoPrestamos.add(libroParaProbar);
+listadoPrestamos.add(libroParaProbar);
+HashMap<Integer, LibrosOcio> hashLibrosReferencia = new HashMap();
+hashLibrosReferencia.put(Integer.parseInt(libroParaProbar.getRef()), libroParaProbar);

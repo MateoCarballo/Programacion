@@ -3,7 +3,6 @@ import examen.Biblioteca.POJOS.ConsorcioBibliotecas.Biblioteca;
 import examen.Biblioteca.POJOS.ConsorcioBibliotecas.Consorcio;
 import examen.Biblioteca.POJOS.Libros.Libros;
 
-import examen.Biblioteca.POJOS.Prestamos;
 import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -17,9 +16,8 @@ public class Main{
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         escribrirFlog();
         miConsorcio.addBiblioteca(biblioteca1);
-        biblioteca1.añadirLibro(new ArrayList<>(),"Referencia","Titulo",12.23f,true);
+        biblioteca1.anhadirLibro(new ArrayList<>(),"Referencia","Titulo",12.23f,true);
         ConexionesFicheros misConexiones = new ConexionesFicheros();
-        File ficheroConsorcio =misConexiones.crearFicheroDat(DIRECTORY_PATH);
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         boolean esUnNumero=false;
         boolean continuarMenuPpal = true;
@@ -41,7 +39,7 @@ public class Main{
                     7.
                     8.Escribir Flog
                     9.Leer Flog
-                    0.Salir               
+                    0.Salir.\040\040\040\040\040\040\040\040\040\040\040\040\040
                     """);
 
                 seleccionMenu= br.readLine();
@@ -117,15 +115,9 @@ public class Main{
                     miConsorcio=misConexiones.readConsorcio(DIRECTORY_PATH);
                     System.out.println(miConsorcio);
                 }
-                case 8 -> {
-                   leerFlog();
-                }
-                case 9 -> {
-                    escribrirFlog();
-                }
-                case 0 -> {
-                    continuarMenuPpal = false;
-                }
+                case 8 -> escribrirFlog();
+                case 9 -> leerFlog();
+                case 0 -> continuarMenuPpal = false;
             }
             esUnNumero = false;
 
@@ -190,11 +182,9 @@ public class Main{
 
 
     private static void leerFlog() throws IOException {
-
         File txtFlog = new File("C:\\Users\\a22mateoca\\Desktop\\Examen " +
                 "3v PR\\esqueletoExamen\\Datos\\Flog.txt");
         BufferedReader in = null;
-
         in = new BufferedReader(new FileReader("C:\\Users\\a22mateoca\\Desktop\\Examen " +
                 "3v PR\\esqueletoExamen\\Datos\\Flog.txt"));
         try {
@@ -203,34 +193,19 @@ public class Main{
                 line=in.readLine();
                 System.out.println(line);
             }while(line!=null);
-
         } catch (IOException e) {
             throw new RuntimeException(e);
-
         }finally{
             if(!(in ==null)){
                 in.close();
             }
-
         }
     }
     public static boolean validaDNI_Exp(String DNI){
-
         return DNI.matches("^[1-9]{8}[T|R|W|A|G|M|Y|F|P|D|X|B|N|J|Z|S|Q|V|H|L|C|K|E]{1}$");
-
     }
-    //VALIDAR UNA FECHA
     public static boolean validaNumeroFecha_Exp(String texto) {
 
         return texto.matches("^(0?[1-9]|[12][0-9]|3[01])[\\/](0?[1-9]|1[012])[/\\/](19|20)\\d{2}$");
     }
-    /**
-     *
-     * public static void imprimirElementosArrayList (ArrayList<Persona> lista){
-     *         for(Persona elemento :lista) {
-     *             System.out.println(elemento);
-     *         }
-     *     }
-     */
-
 }

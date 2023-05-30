@@ -8,7 +8,6 @@ package examen.Biblioteca.POJOS.ConsorcioBibliotecas;
 import examen.Biblioteca.POJOS.Libros.Libros;
 import examen.Biblioteca.POJOS.Libros.LibrosOcio;
 import examen.Biblioteca.POJOS.Prestamos;
-import examen.Biblioteca.POJOS.Usuarios;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -67,7 +66,7 @@ public class Biblioteca implements Serializable {
         this.L = L;
     }
 
-    public void añadirLibro(ArrayList<Prestamos> pres,String referencia,String titulo,float precio,boolean estado){
+    public void anhadirLibro(ArrayList<Prestamos> pres, String referencia, String titulo, float precio, boolean estado){
         this.L.add(new LibrosOcio(pres,referencia,titulo,precio,estado));
     }
     public boolean comprobarLibro(String tituloAComprobar){

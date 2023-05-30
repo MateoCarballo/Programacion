@@ -3,8 +3,7 @@ package examen.Biblioteca.POJOS;
 import java.time.LocalDate;
 
 public class Usuarios {
-
-    public Usuarios(){
+    public Usuarios() {
     }
 
     public Usuarios(int id, String dniLector, String nombre, String apellido1, String apellido2, String domicilio, String tel) {
@@ -18,12 +17,7 @@ public class Usuarios {
     }
 
     private int id;
-    private String dniLector;
-    private String nombre;
-    private String apellido1;
-    private String apellido2;
-    private String domicilio;
-    private String tel;
+    private String dniLector, nombre, apellido1, apellido2, domicilio, tel;
     private boolean sancion;
     private LocalDate sancion_hasta;
 

@@ -29,3 +29,5 @@ Conceptos que deberiamos conocer aun acabado el temario del curso:
   - USB WebServer
   - Patrong singleton, asegurar que solo hay una conexion.
   - Revisar funciones lambda, swing, Javafx.
+  - Nomenclaruta JPA.
+  - Ejercicios hibernate ORM subidos por MN.

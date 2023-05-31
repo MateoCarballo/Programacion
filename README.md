@@ -22,9 +22,10 @@ Enlace para volver al repositorio principal del curso:
 | FICHEROS          | [Acceso rápido](./Codigo%20Java/Ficheros/)            |
 | VALIDACIONES      | [Acceso rápido](./Codigo%20Java/VALIDACIONES/)        |
 
-Conceptos que deberiamos conocer aun acabado el temario del curso.
-· Hibernate.
-· Docker.
-· DBeaver. Conectase a varias bases de datos desde la misma aplicacion. Mu comodo para trabajar con varias DB.
-· USB WebServer
-· Patrong singleton, asegurar que solo hay una conexion.
+Conceptos que deberiamos conocer aun acabado el temario del curso:
+  - Hibernate.
+  - Docker.
+  - DBeaver. Conectase a varias bases de datos desde la misma aplicacion. Mu comodo para trabajar con varias DB.
+  - USB WebServer
+  - Patrong singleton, asegurar que solo hay una conexion.
+  - Revisar funciones lambda, swing, Javafx.

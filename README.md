@@ -20,4 +20,11 @@ Enlace para volver al repositorio principal del curso:
 | EJERCICIOS ARRAYS | [Acceso rápido](./Codigo%20Java/ejemplos-20230517/)   | 
 | EJERCICIOS VARIOS | [Acceso rápido](./Codigo%20Java/EJERCICIOS/)          |
 | FICHEROS          | [Acceso rápido](./Codigo%20Java/Ficheros/)            |
-| VALIDACIONES      | [Acceso rápido](./Codigo%20Java/VALIDACIONES/)            |
+| VALIDACIONES      | [Acceso rápido](./Codigo%20Java/VALIDACIONES/)        |
+
+Conceptos que deberiamos conocer aun acabado el temario del curso.
+· Hibernate.
+· Docker.
+· DBeaver. Conectase a varias bases de datos desde la misma aplicacion. Mu comodo para trabajar con varias DB.
+· USB WebServer
+· Patrong singleton, asegurar que solo hay una conexion.
